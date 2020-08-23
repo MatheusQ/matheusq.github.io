@@ -18,13 +18,14 @@ No campo profissional, ingressou em um estágio durante a faculdade na unidade C
 Ao se formar Analista de Sistemas pela UNICAMP e terminar o estágio, desenvolveu um projeto com Raspberry para estudar infraestrutura. Esse projeto deu origem a este site, coisasdeinfra.
 
 Seus objetivos hoje são continuar se aprimorando na área de infraestrutura, com foco em sysadmin, redes e segurança.
-Portfólio: links para artigo e resumo publicados
 
-# Link externo para visualizar artigo publicado no SBSeg 2017:
+# Portfólio: links para artigo e resumo publicados
+
+## Link externo para visualizar artigo publicado no SBSeg 2017:
 
 <http://doi.org/10.5281/zenodo.1039050>
 
-# Link externo para visualizar resumo publicado pelo XXV Congresso de Iniciação Científica da UNICAMP:
+## Link externo para visualizar resumo publicado pelo XXV Congresso de Iniciação Científica da UNICAMP:
 
 <http://dx.doi.org/10.19146/pibic-2017-77893>
 
