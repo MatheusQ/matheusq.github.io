@@ -9,19 +9,13 @@ Antes de mais nada, os artigos técnicos sobre o projeto seguirão divididos em 
 
 O índice dos artigos estão em seguida deste parágrafo. Sempre que um novo artigo desta sequência for postado, atualizarei este índice com os respectivos links para os artigos.
 
-Teste `teste`
-
-{{< admonition note "Índice" >}}
-  * [Contextualização](#contextualização)
-  * [Objetivos](#objetivos)
-  * [Motivações](#motivações)
-  * [Curiosidade](#curiosidade)
-{{< /admonition >}}
-
-> * [Contextualização](#contextualização)
-> * [Objetivos](#objetivos)
-> * [Motivações](#motivações)
-> * [Curiosidade](#curiosidade)
+> [Parte 1: Instalar o Raspbian Lite No Raspberry Pi 3 Model B](https://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/)
+> 
+> [Parte 2: Primeiras Configurações no Raspbian Lite](https://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/)
+> 
+> [Parte 3: Raspberry como roteador Wi-Fi](https://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/)
+> 
+> [Parte 4: Rodando o sistema do Raspberry Pi 3 em um HD Externo](https://coisasdeinfra.com/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/)
 
 ## Contextualização
 

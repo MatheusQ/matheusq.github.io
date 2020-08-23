@@ -9,11 +9,9 @@
 <meta property="og:description" content="Após fazer a instalação do sistema operacional Raspbian Lite no Raspberry Pi 3 no artigo anterior, precisamos agora realizar algumas configurações básicas, para que o sistema fique bem configurado e estável para o uso. Além disso, já vamos realizar algum gerenciamento de usuários, configurar o básico de rede, deixar o sistema acessível via SSH e atualizar o sistema. Mãos ao teclado!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" />
-<meta property="og:image" content="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/logo.png"/>
 <meta property="article:published_time" content="2018-11-30T10:00:00+00:00" />
 <meta property="article:modified_time" content="2018-11-30T10:00:00+00:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/logo.png"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto"/>
 <meta name="twitter:description" content="Após fazer a instalação do sistema operacional Raspbian Lite no Raspberry Pi 3 no artigo anterior, precisamos agora realizar algumas configurações básicas, para que o sistema fique bem configurado e estável para o uso. Além disso, já vamos realizar algum gerenciamento de usuários, configurar o básico de rede, deixar o sistema acessível via SSH e atualizar o sistema. Mãos ao teclado!"/>
 <meta name="application-name" content="Coisas De Infra">
@@ -28,12 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/coisasdeinfra.com\/primeiras-configuracoes-no-raspbian-lite\/"
-        },"image": [{
-                            "@type": "ImageObject",
-                            "url": "http:\/\/coisasdeinfra.com\/primeiras-configuracoes-no-raspbian-lite\/logo.png",
-                            "width":  720 ,
-                            "height":  383 
-                        }],"genre": "posts","wordcount":  2354 ,
+        },"genre": "posts","keywords": "Raspberry Pi, Raspbian, Linux, Infraestrutura, ssh, aptitude","wordcount":  2354 ,
         "url": "http:\/\/coisasdeinfra.com\/primeiras-configuracoes-no-raspbian-lite\/","datePublished": "2018-11-30T10:00:00+00:00","dateModified": "2018-11-30T10:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "Matheus Dias Queiroz"},"author": {
@@ -50,11 +43,11 @@
             <a href="/" title="Coisas de Infra"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="/coisasdeinfraLogo.png"
-        data-srcset="/coisasdeinfraLogo.png, /coisasdeinfraLogo.png 1.5x, /coisasdeinfraLogo.png 2x"
+        data-src="Coisas%20de%20Infra"
+        data-srcset="Coisas%20de%20Infra, Coisas%20de%20Infra 1.5x, Coisas%20de%20Infra 2x"
         data-sizes="auto"
-        alt="/coisasdeinfraLogo.png"
-        title="/coisasdeinfraLogo.png" /></a>
+        alt="Coisas de Infra"
+        title="Coisas de Infra" /></a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
@@ -81,11 +74,11 @@
                 <a href="/" title="Coisas de Infra"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="/coisasdeinfraLogo.png"
-        data-srcset="/coisasdeinfraLogo.png, /coisasdeinfraLogo.png 1.5x, /coisasdeinfraLogo.png 2x"
+        data-src="Coisas%20de%20Infra"
+        data-srcset="Coisas%20de%20Infra, Coisas%20de%20Infra 1.5x, Coisas%20de%20Infra 2x"
         data-sizes="auto"
-        alt="/coisasdeinfraLogo.png"
-        title="/coisasdeinfraLogo.png" /></a>
+        alt="Coisas de Infra"
+        title="Coisas de Infra" /></a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -126,14 +119,7 @@
             <div class="post-meta-line"><span class="post-author"><a href="https://coisasdeinfra.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Matheus Dias Queiroz</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="30-11-2018">30-11-2018</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
-        </div><div class="featured-image"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/primeiras-configuracoes-no-raspbian-lite/logo.png"
-        data-srcset="/primeiras-configuracoes-no-raspbian-lite/logo.png, /primeiras-configuracoes-no-raspbian-lite/logo.png 1.5x, /primeiras-configuracoes-no-raspbian-lite/logo.png 2x"
-        data-sizes="auto"
-        alt="/primeiras-configuracoes-no-raspbian-lite/logo.png"
-        title="/primeiras-configuracoes-no-raspbian-lite/logo.png" /></div><div class="details toc" id="toc-static"  kept="">
+        </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span></span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
@@ -445,13 +431,13 @@ aptitude full-upgrade
                             <a class="link-to-markdown" href="/primeiras-configuracoes-no-raspbian-lite/index.md" target="_blank"></a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" WhatsApp" data-sharer="whatsapp" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title=" Trello" data-sharer="trello" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-hashtags="Raspberry Pi,Raspbian,Linux,Infraestrutura,ssh,aptitude"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-hashtag="Raspberry Pi"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" WhatsApp" data-sharer="whatsapp" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title=" Trello" data-sharer="trello" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/raspberry-pi/">Raspberry Pi</a>,&nbsp;<a href="/tags/raspbian/">raspbian</a>,&nbsp;<a href="/tags/linux/">linux</a>,&nbsp;<a href="/tags/infraestrutura/">infraestrutura</a>,&nbsp;<a href="/tags/ssh/">ssh</a>,&nbsp;<a href="/tags/aptitude/">aptitude</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
         </section>
@@ -474,5 +460,5 @@ aptitude full-upgrade
             </a><a href="#" id="view-comments" class="fixed-button" title="">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":1000},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://coisasdeinfra-com.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":1000},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

@@ -9,12 +9,9 @@
 <meta property="og:description" content="Veja como instalar o adaptador Wi-Fi USB Alfa AWUS03NH no Linux, um experimento de comparação entre o Wi-Fi interno de um Raspberry Pi 3 B e o Alfa, usando a ferramenta iperf3; e também como utilizá-lo em modo AP (Access Point / ponto de acesso Wi-Fi)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" />
-<meta property="og:image" content="http://coisasdeinfra.com/coisasdeinfra.png"/>
 <meta property="article:published_time" content="2019-01-18T10:00:00+00:00" />
 <meta property="article:modified_time" content="2019-01-18T10:00:00+00:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://coisasdeinfra.com/coisasdeinfra.png"/>
-
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho"/>
 <meta name="twitter:description" content="Veja como instalar o adaptador Wi-Fi USB Alfa AWUS03NH no Linux, um experimento de comparação entre o Wi-Fi interno de um Raspberry Pi 3 B e o Alfa, usando a ferramenta iperf3; e também como utilizá-lo em modo AP (Access Point / ponto de acesso Wi-Fi)."/>
 <meta name="application-name" content="Coisas De Infra">
@@ -29,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/coisasdeinfra.com\/instalacao-experimento-adaptador-alfa-linux\/"
-        },"genre": "posts","wordcount":  1884 ,
+        },"genre": "posts","keywords": "wifi, iperf, linux, infraestrutura, raspberry, raspbian, iwlist, redes","wordcount":  1884 ,
         "url": "http:\/\/coisasdeinfra.com\/instalacao-experimento-adaptador-alfa-linux\/","datePublished": "2019-01-18T10:00:00+00:00","dateModified": "2019-01-18T10:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "Matheus Dias Queiroz"},"author": {
@@ -46,11 +43,11 @@
             <a href="/" title="Coisas de Infra"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="/coisasdeinfraLogo.png"
-        data-srcset="/coisasdeinfraLogo.png, /coisasdeinfraLogo.png 1.5x, /coisasdeinfraLogo.png 2x"
+        data-src="Coisas%20de%20Infra"
+        data-srcset="Coisas%20de%20Infra, Coisas%20de%20Infra 1.5x, Coisas%20de%20Infra 2x"
         data-sizes="auto"
-        alt="/coisasdeinfraLogo.png"
-        title="/coisasdeinfraLogo.png" /></a>
+        alt="Coisas de Infra"
+        title="Coisas de Infra" /></a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
@@ -77,11 +74,11 @@
                 <a href="/" title="Coisas de Infra"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="/coisasdeinfraLogo.png"
-        data-srcset="/coisasdeinfraLogo.png, /coisasdeinfraLogo.png 1.5x, /coisasdeinfraLogo.png 2x"
+        data-src="Coisas%20de%20Infra"
+        data-srcset="Coisas%20de%20Infra, Coisas%20de%20Infra 1.5x, Coisas%20de%20Infra 2x"
         data-sizes="auto"
-        alt="/coisasdeinfraLogo.png"
-        title="/coisasdeinfraLogo.png" /></a>
+        alt="Coisas de Infra"
+        title="Coisas de Infra" /></a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -220,7 +217,7 @@ aptitude install firmware-ralink
         <div class="details-content">
             <div class="admonition-content"><ol>
 <li>verifique a nomenclatura da sua interface e a especifique corretamente no comando <code>ip link set dev interface up</code>. No meu caso, o sistema reconheceu o adaptador como <code>wlan1</code>, mas o seu sistema pode reconhecer de maneira diferente. Dê o comando ip a ou <code>ip link</code> ou <code>lshw -class network</code> para identificar como a sua interface foi nomeada pelo sistema.</li>
-<li>Se quiser saber como configurar o arquivo interfaces do Linux e também entender melhor o sistema de nomenclatura de interfaces de rede do Linux, acesse o seguinte link: http://192.168.15.16/raspberry-como-roteador-wi-fi-parte-3-do-projeto/</li>
+<li>Se quiser saber como configurar o arquivo interfaces do Linux e também entender melhor o sistema de nomenclatura de interfaces de rede do Linux, acesse o seguinte link: <a href="https://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/">https://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/</a></li>
 </ol>
 </div>
         </div>
@@ -237,7 +234,7 @@ aptitude install firmware-ralink
             alt="/instalacao-experimento-adaptador-alfa-linux/lshw_network_raspberry-edit_2.png" />
     </a><figcaption class="image-caption">Adaptador Alfa descrito no comando lshw -class network</figcaption>
     </figure></p>
-<p>Além disso, não foi necessário alimentar (energizar) o adaptador de forma externa, como é feito com um HD Externo para que funcione no Raspberry, por exemplo. Bastou ligar diretamente na porta USB do Raspberry e usar. Porém, vale citar que no meu caso apenas o adaptador Wi-Fi está usando energia das portas USB. A única coisa a mais que tenho ligada é o HD Externo, mas esse é alimentado de forma externa. Saiba mais sobre isso em <a href="http://192.168.15.16/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/">http://192.168.15.16/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/</a>.</p>
+<p>Além disso, não foi necessário alimentar (energizar) o adaptador de forma externa, como é feito com um HD Externo para que funcione no Raspberry, por exemplo. Bastou ligar diretamente na porta USB do Raspberry e usar. Porém, vale citar que no meu caso apenas o adaptador Wi-Fi está usando energia das portas USB. A única coisa a mais que tenho ligada é o HD Externo, mas esse é alimentado de forma externa. Saiba mais sobre isso em <a href="https://coisasdeinfra.com/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/">https://coisasdeinfra.com/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/</a>.</p>
 <h1 id="experimento">Experimento</h1>
 <p>Para conseguir comparar de maneira mais científica, do que só olhar barrinha de sinal na barra de tarefas do S.O, se o adaptador Wi-Fi USB Alfa daria maior alcance e qualidade para o sinal Wi-Fi, elaborei o seguinte teste:</p>
 <ul>
@@ -350,7 +347,7 @@ aptitude install firmware-ralink
     </figure></p>
 <p>Neste último teste tive a expectativa atendida, que foi a de que quando o notebook está mais exposto há uma melhora no sinal e consequentemente na banda de rede entre ele e o Raspberry com adaptador Alfa. Neste resultado melhoramos ainda um pouco mais: de 138MBytes transferidos e 19,3 Mbits/sec para <strong>153MBytes</strong> de dados transferidos e banda de <strong>21,4Mbits/sec</strong>. Esse resultado em relação ao mesmo teste quando o adaptador Wi-Fi era o interno do Raspberry, dá uma melhora de aproximadamente <strong>10 vezes mais velocidade</strong>.</p>
 <h1 id="bônus-adaptador-wi-fi-usb-alfa-awus036nh-em-modo-ap">Bônus: adaptador Wi-Fi USB Alfa AWUS036NH em modo AP</h1>
-<p>Aqui, não é necessário nenhum trabalho, pois no blog já existe o “como fazer isso” pronto! Basta usar as mesmas configurações (iguaizinhas, até de driver) utilizadas no link a seguir: <a href="http://192.168.15.16/raspberry-como-roteador-wi-fi-parte-3-do-projeto/#3_Instalacao_e_configuracao_do_servico_hostapd_para_fazer_do_Raspberry_um_ponto_de_acesso_Wi-Fi">http://192.168.15.16/raspberry-como-roteador-wi-fi-parte-3-do-projeto/#3_Instalacao_e_configuracao_do_servico_hostapd_para_fazer_do_Raspberry_um_ponto_de_acesso_Wi-Fi</a></p>
+<p>Aqui, não é necessário nenhum trabalho, pois no blog já existe o “como fazer isso” pronto! Basta usar as mesmas configurações (iguaizinhas, até de driver) utilizadas no link a seguir: <a href="https://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/#3_Instalacao_e_configuracao_do_servico_hostapd_para_fazer_do_Raspberry_um_ponto_de_acesso_Wi-Fi">https://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/#3_Instalacao_e_configuracao_do_servico_hostapd_para_fazer_do_Raspberry_um_ponto_de_acesso_Wi-Fi</a></p>
 <h1 id="conclusão">Conclusão</h1>
 <p>Acredito que os resultados dos testes tenham indicado as seguintes conclusões: <strong>1)</strong> envolver o Raspberry em um case + cooler diminui sua capacidade de alcance Wi-Fi. Além disso, o sinal aparenta oscilar mais (instabilidade). <strong>2)</strong> Um adaptador Wi-Fi USB de qualidade, de preferência com antena externa, pode melhorar drasticamente a qualidade do sinal e consequentemente o fluxo da rede local.</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -365,13 +362,13 @@ aptitude install firmware-ralink
                             <a class="link-to-markdown" href="/instalacao-experimento-adaptador-alfa-linux/index.md" target="_blank"></a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" WhatsApp" data-sharer="whatsapp" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title=" Trello" data-sharer="trello" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho" data-hashtags="wifi,iperf,linux,infraestrutura,raspberry,raspbian,iwlist,redes"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-hashtag="wifi"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" WhatsApp" data-sharer="whatsapp" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title=" Trello" data-sharer="trello" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/wifi/">wifi</a>,&nbsp;<a href="/tags/iperf/">iperf</a>,&nbsp;<a href="/tags/linux/">linux</a>,&nbsp;<a href="/tags/infraestrutura/">infraestrutura</a>,&nbsp;<a href="/tags/raspberry/">raspberry</a>,&nbsp;<a href="/tags/raspbian/">raspbian</a>,&nbsp;<a href="/tags/iwlist/">iwlist</a>,&nbsp;<a href="/tags/redes/">redes</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
         </section>
@@ -393,5 +390,5 @@ aptitude install firmware-ralink
             </a><a href="#" id="view-comments" class="fixed-button" title="">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":1000},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://coisasdeinfra-com.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":1000},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

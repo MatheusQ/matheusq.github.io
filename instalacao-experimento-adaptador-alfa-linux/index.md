@@ -50,7 +50,7 @@ Com o devido firmware/módulo instalado, basta dar o comando `ip link set dev wl
 
 {{< admonition type=tip title="Dicas" open=true >}}
 1) verifique a nomenclatura da sua interface e a especifique corretamente no comando `ip link set dev interface up`. No meu caso, o sistema reconheceu o adaptador como `wlan1`, mas o seu sistema pode reconhecer de maneira diferente. Dê o comando ip a ou `ip link` ou `lshw -class network` para identificar como a sua interface foi nomeada pelo sistema. 
-2) Se quiser saber como configurar o arquivo interfaces do Linux e também entender melhor o sistema de nomenclatura de interfaces de rede do Linux, acesse o seguinte link: http://192.168.15.16/raspberry-como-roteador-wi-fi-parte-3-do-projeto/
+2) Se quiser saber como configurar o arquivo interfaces do Linux e também entender melhor o sistema de nomenclatura de interfaces de rede do Linux, acesse o seguinte link: <https://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/>
 {{< /admonition >}}
 
 ## Raspberry – Raspbian GNU/Linux 9.6 (stretch)
@@ -59,7 +59,7 @@ Já no Raspberry não foi necessária a instalação de nenhum driver ou firmwar
 
 ![Alt text](lshw_network_raspberry-edit_2.png "Adaptador Alfa descrito no comando lshw -class network")
 
-Além disso, não foi necessário alimentar (energizar) o adaptador de forma externa, como é feito com um HD Externo para que funcione no Raspberry, por exemplo. Bastou ligar diretamente na porta USB do Raspberry e usar. Porém, vale citar que no meu caso apenas o adaptador Wi-Fi está usando energia das portas USB. A única coisa a mais que tenho ligada é o HD Externo, mas esse é alimentado de forma externa. Saiba mais sobre isso em <http://192.168.15.16/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/>.
+Além disso, não foi necessário alimentar (energizar) o adaptador de forma externa, como é feito com um HD Externo para que funcione no Raspberry, por exemplo. Bastou ligar diretamente na porta USB do Raspberry e usar. Porém, vale citar que no meu caso apenas o adaptador Wi-Fi está usando energia das portas USB. A única coisa a mais que tenho ligada é o HD Externo, mas esse é alimentado de forma externa. Saiba mais sobre isso em <https://coisasdeinfra.com/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/>.
 
 # Experimento
  
@@ -149,7 +149,7 @@ Neste último teste tive a expectativa atendida, que foi a de que quando o noteb
 
 # Bônus: adaptador Wi-Fi USB Alfa AWUS036NH em modo AP
 
-Aqui, não é necessário nenhum trabalho, pois no blog já existe o “como fazer isso” pronto! Basta usar as mesmas configurações (iguaizinhas, até de driver) utilizadas no link a seguir: <http://192.168.15.16/raspberry-como-roteador-wi-fi-parte-3-do-projeto/#3_Instalacao_e_configuracao_do_servico_hostapd_para_fazer_do_Raspberry_um_ponto_de_acesso_Wi-Fi>
+Aqui, não é necessário nenhum trabalho, pois no blog já existe o “como fazer isso” pronto! Basta usar as mesmas configurações (iguaizinhas, até de driver) utilizadas no link a seguir: <https://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/#3_Instalacao_e_configuracao_do_servico_hostapd_para_fazer_do_Raspberry_um_ponto_de_acesso_Wi-Fi>
 
 # Conclusão
 

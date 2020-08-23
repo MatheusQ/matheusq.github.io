@@ -11,11 +11,9 @@ Além disso, haverá a possibilidade de estender as funções do Raspberry. “P
 Enfim, esta parte do projeto, depois de pronta, serviu de inspiração para eu continuar tendo ideias, realizar experimentos e, resumidamente, chegar ao nível de desenvolver um site. Espero que, depois de implementada, esta parte também sirva de inspiração para você continuar experimentando e aprendendo com o seu Rasp." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" />
-<meta property="og:image" content="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/logo.png"/>
 <meta property="article:published_time" content="2018-12-06T11:00:00+00:00" />
 <meta property="article:modified_time" content="2018-12-06T11:00:00+00:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/logo.png"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Raspberry como roteador Wi-Fi – Parte 3 do Projeto"/>
 <meta name="twitter:description" content="Inicialmente, meu objetivo final quando comecei este projeto era esta parte: a parte em que vamos implementar os serviços de ponto de acesso Wi-Fi e de servidor DHCP. Com esses dois serviços configurados e mais algumas configurações de rede e firewall, o Raspberry se torna capaz de substituir muito roteador residencial com propriedade. Reflita: terás um sistema Linux estável e totalmente configurável, com hardware superdimensionado quando comparado a de roteadores residenciais, gerenciando sua rede Wi-Fi e seu acesso a Internet. Acredito que, “robusto” é uma possível palavra de reação para o que acabamos de ler.
 Além disso, haverá a possibilidade de estender as funções do Raspberry. “Preciso de VPN = instale o serviço”. “Meu videogame está com problema para acessar o servidor do jogo = nada que uma regrinha no iptables não resolva”. “Será útil compartilhar arquivos entre os computadores da minha residência = só configurar”. “Quero implementar um site (meu caso) = vá em frente”. As possibilidades são infinitas, ainda sem entrar no mérito das possíveis automações elétricas e eletrônicas que o Raspberry é capaz de fazer graças aos seus pinos programáveis.
@@ -32,12 +30,7 @@ Enfim, esta parte do projeto, depois de pronta, serviu de inspiração para eu c
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/coisasdeinfra.com\/raspberry-como-roteador-wi-fi-parte-3-do-projeto\/"
-        },"image": [{
-                            "@type": "ImageObject",
-                            "url": "http:\/\/coisasdeinfra.com\/raspberry-como-roteador-wi-fi-parte-3-do-projeto\/logo.png",
-                            "width":  720 ,
-                            "height":  383 
-                        }],"genre": "posts","keywords": "blog, free software, projeto, Raspberry Pi, Raspbian, Linux, Infraestrutura","wordcount":  1716 ,
+        },"genre": "posts","keywords": "Raspberry Pi, Raspbian, Linux, Infraestrutura, hostapd, dhcp, redes","wordcount":  1716 ,
         "url": "http:\/\/coisasdeinfra.com\/raspberry-como-roteador-wi-fi-parte-3-do-projeto\/","datePublished": "2018-12-06T11:00:00+00:00","dateModified": "2018-12-06T11:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "Matheus Dias Queiroz"},"author": {
@@ -54,11 +47,11 @@ Enfim, esta parte do projeto, depois de pronta, serviu de inspiração para eu c
             <a href="/" title="Coisas de Infra"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="/coisasdeinfraLogo.png"
-        data-srcset="/coisasdeinfraLogo.png, /coisasdeinfraLogo.png 1.5x, /coisasdeinfraLogo.png 2x"
+        data-src="Coisas%20de%20Infra"
+        data-srcset="Coisas%20de%20Infra, Coisas%20de%20Infra 1.5x, Coisas%20de%20Infra 2x"
         data-sizes="auto"
-        alt="/coisasdeinfraLogo.png"
-        title="/coisasdeinfraLogo.png" /></a>
+        alt="Coisas de Infra"
+        title="Coisas de Infra" /></a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
@@ -85,11 +78,11 @@ Enfim, esta parte do projeto, depois de pronta, serviu de inspiração para eu c
                 <a href="/" title="Coisas de Infra"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="/coisasdeinfraLogo.png"
-        data-srcset="/coisasdeinfraLogo.png, /coisasdeinfraLogo.png 1.5x, /coisasdeinfraLogo.png 2x"
+        data-src="Coisas%20de%20Infra"
+        data-srcset="Coisas%20de%20Infra, Coisas%20de%20Infra 1.5x, Coisas%20de%20Infra 2x"
         data-sizes="auto"
-        alt="/coisasdeinfraLogo.png"
-        title="/coisasdeinfraLogo.png" /></a>
+        alt="Coisas de Infra"
+        title="Coisas de Infra" /></a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -130,14 +123,7 @@ Enfim, esta parte do projeto, depois de pronta, serviu de inspiração para eu c
             <div class="post-meta-line"><span class="post-author"><a href="https://coisasdeinfra.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Matheus Dias Queiroz</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="06-12-2018">06-12-2018</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
-        </div><div class="featured-image"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/raspberry-como-roteador-wi-fi-parte-3-do-projeto/logo.png"
-        data-srcset="/raspberry-como-roteador-wi-fi-parte-3-do-projeto/logo.png, /raspberry-como-roteador-wi-fi-parte-3-do-projeto/logo.png 1.5x, /raspberry-como-roteador-wi-fi-parte-3-do-projeto/logo.png 2x"
-        data-sizes="auto"
-        alt="/raspberry-como-roteador-wi-fi-parte-3-do-projeto/logo.png"
-        title="/raspberry-como-roteador-wi-fi-parte-3-do-projeto/logo.png" /></div><div class="details toc" id="toc-static"  kept="">
+        </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span></span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
@@ -540,13 +526,13 @@ subnet 192.168.2.0 netmask 255.255.255.0 {
                             <a class="link-to-markdown" href="/raspberry-como-roteador-wi-fi-parte-3-do-projeto/index.md" target="_blank"></a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" data-title="Raspberry como roteador Wi-Fi – Parte 3 do Projeto" data-hashtags="blog,free software,projeto,Raspberry Pi,Raspbian,Linux,Infraestrutura"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" data-hashtag="blog"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" WhatsApp" data-sharer="whatsapp" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" data-title="Raspberry como roteador Wi-Fi – Parte 3 do Projeto" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" data-title="Raspberry como roteador Wi-Fi – Parte 3 do Projeto" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" data-title="Raspberry como roteador Wi-Fi – Parte 3 do Projeto"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title=" Trello" data-sharer="trello" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" data-title="Raspberry como roteador Wi-Fi – Parte 3 do Projeto" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" data-title="Raspberry como roteador Wi-Fi – Parte 3 do Projeto" data-hashtags="Raspberry Pi,Raspbian,Linux,Infraestrutura,hostapd,dhcp,redes"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" data-hashtag="Raspberry Pi"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" WhatsApp" data-sharer="whatsapp" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" data-title="Raspberry como roteador Wi-Fi – Parte 3 do Projeto" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" data-title="Raspberry como roteador Wi-Fi – Parte 3 do Projeto" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" data-title="Raspberry como roteador Wi-Fi – Parte 3 do Projeto"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title=" Trello" data-sharer="trello" data-url="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" data-title="Raspberry como roteador Wi-Fi – Parte 3 do Projeto" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/blog/">blog</a>,&nbsp;<a href="/tags/free-software/">free software</a>,&nbsp;<a href="/tags/projeto/">projeto</a>,&nbsp;<a href="/tags/raspberry-pi/">Raspberry Pi</a>,&nbsp;<a href="/tags/raspbian/">Raspbian</a>,&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/infraestrutura/">Infraestrutura</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/raspberry-pi/">Raspberry Pi</a>,&nbsp;<a href="/tags/raspbian/">raspbian</a>,&nbsp;<a href="/tags/linux/">linux</a>,&nbsp;<a href="/tags/infraestrutura/">infraestrutura</a>,&nbsp;<a href="/tags/hostapd/">hostapd</a>,&nbsp;<a href="/tags/dhcp/">dhcp</a>,&nbsp;<a href="/tags/redes/">redes</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
         </section>
@@ -569,5 +555,5 @@ subnet 192.168.2.0 netmask 255.255.255.0 {
             </a><a href="#" id="view-comments" class="fixed-button" title="">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":1000},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://coisasdeinfra-com.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":1000},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
