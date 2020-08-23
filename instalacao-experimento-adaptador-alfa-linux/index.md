@@ -7,7 +7,7 @@ Veja como instalar o adaptador Wi-Fi USB Alfa AWUS03NH no Linux, um experimento 
 
 # Contextualização
 
-O que me levou a procurar um adaptador Wi-Fi USB (de boa qualidade) foi devido ao meu projeto de infraestrutura com Raspberry Pi 3 B. Nesse projeto eu configuro o Raspberry para ser o roteador/server da minha rede. Para saber mais sobre esse projeto, acesse aqui.
+O que me levou a procurar um adaptador Wi-Fi USB (de boa qualidade) foi devido ao meu projeto de infraestrutura com Raspberry Pi 3 B. Nesse projeto eu configuro o Raspberry para ser o roteador/server da minha rede. Para saber mais sobre esse projeto, [acesse aqui](https://coisasdeinfra.com/projeto-infra-com-raspberry-pi-3/).
 
 Depois que concluí o projeto base, que era utilizar o Raspberry para fornecer rede Wi-Fi e gerir a rede toda (acesso a internet e rede local), surgiu uma pulga atrás da orelha: a força do sinal Wi-Fi na minha casa (onde o Rasp está hospedado). O que agravou o problema do sinal Wi-Fi emitido pelo Raspberry foi a utilização de um case, para que seja possível utilizar um cooler que por sua vez auxilia a dissipação de calor da placa. Esse case, de acrílico, deixa o Raspberry mais fechado/isolado e consequentemente se torna um obstáculo para a propagação do sinal Wi-Fi.
 
