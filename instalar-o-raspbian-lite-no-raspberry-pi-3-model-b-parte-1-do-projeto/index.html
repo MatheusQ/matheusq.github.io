@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto - Coisas de Infra</title><meta name="Description" content="Instalação do Raspbian Lite em um cartão SD."><meta property="og:title" content="Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto" />
+<meta property="og:description" content="Instalação do Raspbian Lite em um cartão SD." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/" />
+<meta property="og:image" content="http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/logo.png"/>
+<meta property="article:published_time" content="2018-10-09T09:00:00+00:00" />
+<meta property="article:modified_time" content="2018-10-09T09:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/logo.png"/>
+<meta name="twitter:title" content="Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto"/>
+<meta name="twitter:description" content="Instalação do Raspbian Lite em um cartão SD."/>
+<meta name="application-name" content="Coisas De Infra">
+<meta name="apple-mobile-web-app-title" content="Coisas De Infra"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/" /><link rel="prev" href="http://coisasdeinfra.com/projeto-infra-com-raspberry-pi-3/" /><link rel="next" href="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/coisasdeinfra.com\/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/coisasdeinfra.com\/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto\/logo.png",
+                            "width":  720 ,
+                            "height":  383 
+                        }],"genre": "posts","wordcount":  1272 ,
+        "url": "http:\/\/coisasdeinfra.com\/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto\/","datePublished": "2018-10-09T09:00:00+00:00","dateModified": "2018-10-09T09:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "Matheus Dias Queiroz"},"author": {
+                "@type": "Person",
+                "name": "Matheus Dias Queiroz"
+            },"description": "Instalação do Raspbian Lite em um cartão SD."
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Coisas de Infra"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/coisasdeinfraLogo.png"
+        data-srcset="/coisasdeinfraLogo.png, /coisasdeinfraLogo.png 1.5x, /coisasdeinfraLogo.png 2x"
+        data-sizes="auto"
+        alt="/coisasdeinfraLogo.png"
+        title="/coisasdeinfraLogo.png" /></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Coisas de Infra"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/coisasdeinfraLogo.png"
+        data-srcset="/coisasdeinfraLogo.png, /coisasdeinfraLogo.png 1.5x, /coisasdeinfraLogo.png 2x"
+        data-sizes="auto"
+        alt="/coisasdeinfraLogo.png"
+        title="/coisasdeinfraLogo.png" /></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title"></h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://coisasdeinfra.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Matheus Dias Queiroz</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="09-10-2018">09-10-2018</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/logo.png"
+        data-srcset="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/logo.png, /instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/logo.png 1.5x, /instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/logo.png 2x"
+        data-sizes="auto"
+        alt="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/logo.png"
+        title="Instalação do Raspbian Lite em um cartão SD." /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span></span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#nesta-parte-teremos">Nesta parte teremos:</a></li>
+    <li><a href="#o-que-será-necessário">O que será necessário:</a></li>
+    <li><a href="#contextualização">Contextualização</a>
+      <ul>
+        <li><a href="#por-que-raspbian-lite">Por que Raspbian Lite?</a></li>
+      </ul>
+    </li>
+    <li><a href="#instalação-do-raspbian-lite-no-raspberry-pi-a-partir-do-linux">Instalação do Raspbian Lite no Raspberry PI a partir do Linux</a></li>
+    <li><a href="#1-download-do-sistema-raspbian-lite">1. Download do sistema Raspbian Lite</a></li>
+    <li><a href="#2-descompactação-do-arquivo-baixado">2. Descompactação do arquivo baixado</a></li>
+    <li><a href="#3-identificação-e-preparação-do-cartão-de-memória">3. Identificação e preparação do cartão de memória</a></li>
+    <li><a href="#4-gravação-do-sistema-no-cartão-de-memória">4. Gravação do sistema no cartão de memória</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="nesta-parte-teremos">Nesta parte teremos:</h1>
+<ul>
+<li>Instalação do Raspbian Lite em um cartão SD.</li>
+</ul>
+<h1 id="o-que-será-necessário">O que será necessário:</h1>
+<ul>
+<li>Um cartão de memória Micro SD (podendo ser dos tipos SD, SDHC e SDXC) compatível* com Raspberry Pi 3 Model B de no mínimo 4GB, mas eurecomendo ao menos 16GB, o que dá mais folga para a instalação de ferramentas e serviços;</li>
+<li>Um computador com alguma distro Linux instalada, de preferência baseada em Debian que foi a distro a utilizada durante o Projeto;</li>
+<li>Uma maneira de inserir o cartão de memória do tipo Micro em seu computador. Há adaptadores para isso, por exemplo, USB.</li>
+</ul>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>Nota<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Sobre a compatibilidade do cartão Micro SD, segue link com uma extensa lista de marcas e modelos que já se conhece se são compatíveis ou não. <a href="https://elinux.org/RPi_SD_cards#Working_.2F_Non-working_SD_cards">https://elinux.org/RPi_SD_cards#Working_.2F_Non-working_SD_cards</a>.</div>
+        </div>
+    </div>
+<p>Para mais informações e também para entender melhor a relação Cartão SD e Raspberry Pi, acesse os links <a href="https://www.raspberrypi.org/documentation/installation/sd-cards.md">https://www.raspberrypi.org/documentation/installation/sd-cards.md</a> e <a href="https://elinux.org/RPi_SD_cards">https://elinux.org/RPi_SD_cards</a>.</p>
+<h1 id="contextualização">Contextualização</h1>
+<p>A versão do Raspbian utilizada no projeto e também a atual no momento é o Raspbian Stretch Lite. Além do Raspbian ser baseado no Debian, ele também utiliza os nomes das versões do Debian, e daí vem o “Stretch” no nome</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>Curiosidade<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">A versão do Raspbian utilizada no projeto e também a atual no momento é o Raspbian Stretch Lite. Além do Raspbian ser baseado no Debian, ele também utiliza os nomes das versões do Debian, e daí vem o “Stretch” no nome</div>
+        </div>
+    </div>
+<h2 id="por-que-raspbian-lite">Por que Raspbian Lite?</h2>
+<p>Como o objetivo do projeto é utilizar o Raspberry para fornecer e gerir alguns serviços de rede, não será necessário utilizá-lo como um Desktop, que possui ambiente gráfico com ferramentas como calculadora, navegador de internet, reprodutor de mídias, etc. Pelo contrário, precisamos utilizar um sistema que consuma o menos de memória RAM e processador possível, para que o poder computacional fique o máximo disponível para os serviços implementados. Como o próprio raspberrypi.org descreve, o Raspbian Lite é “Minimal image”, ou seja, um sistema operacional com o mínimo necessário para funcionar, e a partir disso instalamos e personalizamos para a nossa necessidade. Logo, um sistema ideal para o projeto.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>Nota<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">O Raspbian também possui uma versão Desktop, com ambiente gráfico e as devidas ferramentas básicas para esse ambiente.</div>
+        </div>
+    </div>
+<p>Chega de papo, mãos ao teclado!</p>
+<h1 id="instalação-do-raspbian-lite-no-raspberry-pi-a-partir-do-linux">Instalação do Raspbian Lite no Raspberry PI a partir do Linux</h1>
+<p>Os passos de instalação do Raspbian a seguir se baseou no link <a href="https://www.raspberrypi.org/documentation/installation/installing-images/linux.md">https://www.raspberrypi.org/documentation/installation/installing-images/linux.md</a>, onde é dado um passo a passo mais avançado devido ao uso de ferramentas via terminal a partir de um sistema Linux.</p>
+<p>Se você não tem muita familiaridade com comandos via terminal, indico o link <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">https://www.raspberrypi.org/documentation/installation/installing-images/README.md</a> onde é instruído o uso de uma ferramenta gráfica, que pode ser usada dos sistemas Windows, Mac OS e Linux, para a gravação do sistema em um cartão SD.</p>
+<p>Será necessário um cartão de memória Micro SD de no mínimo 4GB e livre para a instalação e uso do sistema. O cartão não poderá ser utilizado para outro fim e os dados que estiverem no cartão serão apagados. Cuidado!</p>
+<p>Quais os passos:</p>
+<ol>
+<li>Download do sistema Raspbian Lite</li>
+<li>Descompactação do arquivo baixado</li>
+<li>Identificação e preparação do cartão de memória</li>
+<li>Gravação do sistema no cartão de memória</li>
+</ol>
+<h1 id="1-download-do-sistema-raspbian-lite">1. Download do sistema Raspbian Lite</h1>
+<p>Para começar, faça o Download da última versão do sistema Raspbian Lite no link: <a href="https://www.raspberrypi.org/downloads/raspbian/">https://www.raspberrypi.org/downloads/raspbian/</a></p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>Nota<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">No caso do projeto foi escolhido o Download do ZIP.</div>
+        </div>
+    </div>
+<p>No meu caso foi utilizado um cartão de memória SanDisk Micro SDHC 1 Classe 4 de 16GB. Particularmente, não foi minha prioridade escolher um bom cartão de memória, com boa velocidade e etc, pois a minha real intenção era rodar o sistema em um HD Externo, coisa que aconteceu e que vou abordar nas próximas partes do Projeto. Se você leitor, tem o intuito de deixar o sistema rodando em um cartão de memória, recomendo que preocupe-se com o limitado ciclo de leituras e escritas que uma cartão de memória pode realizar. Ou seja, se esse limite for atingido enquanto o sistema estiver funcionando, provavelmente ele parará de funcionar e os dados armazenados poderão ser perdidos. Por isso, recomende que pesquise sobre o assunto. A seguir um link de uma discussão interessante sobre este assunto:</p>
+<p><a href="https://pt.stackoverflow.com/questions/8990/qual-%C3%A9-a-vida-%C3%BAtil-de-um-cart%C3%A3o-sd-com-raspbian-raspberry-pi">https://pt.stackoverflow.com/questions/8990/qual-é-a-vida-útil-de-um-cartão-sd-com-raspbian-raspberry-pi</a></p>
+<p>Vamos voltar ao que interessa…</p>
+<p>Depois de baixar a imagem do sistema operacional Raspbian Lite, teremos um arquivo (imagem do sistema Raspbian Lite) na pasta escolhida para receber o download, parecido com esse:</p>
+<p><figure><a class="lightgallery" href="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/lsImgBaixada.png" title="Alt text" data-thumbnail="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/lsImgBaixada.png" data-sub-html="<h2>Arquivo zip do Raspbian Lite</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="lsImgBaixada.png"
+            data-srcset="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/lsImgBaixada.png, lsImgBaixada.png 1.5x, /instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/lsImgBaixada.png 2x"
+            data-sizes="auto"
+            alt="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/lsImgBaixada.png" />
+    </a><figcaption class="image-caption">Arquivo zip do Raspbian Lite</figcaption>
+    </figure></p>
+<h1 id="2-descompactação-do-arquivo-baixado">2. Descompactação do arquivo baixado</h1>
+<p>Logo, vamos descompactar esse arquivo</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">unzip 2018-06-27-raspbian-stretch-lite.zip
+</code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/unzipAndLs.png" title="Alt text" data-thumbnail="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/unzipAndLs.png" data-sub-html="<h2>Descompactação do arquivo zip, gerando a imagem (img) do sistema Raspbian</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="unzipAndLs.png"
+            data-srcset="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/unzipAndLs.png, unzipAndLs.png 1.5x, /instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/unzipAndLs.png 2x"
+            data-sizes="auto"
+            alt="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/unzipAndLs.png" />
+    </a><figcaption class="image-caption">Descompactação do arquivo zip, gerando a imagem (img) do sistema Raspbian</figcaption>
+    </figure></p>
+<p>Pronto! Já temos o sistema pronto para ser gravado no cartão de memória. Agora, vamos preparar o cartão para receber o sistema.</p>
+<h1 id="3-identificação-e-preparação-do-cartão-de-memória">3. Identificação e preparação do cartão de memória</h1>
+<p>Nesse momento, insira o cartão em seu computador.</p>
+<p>Quando um cartão de memória ou pendrive, por exemplo, é inserido no computador, o Linux os reconhece como um dispositivo e todo dispositivo tem um nome. Para descobrir o nome do dispositivo no qual o cartão de memória foi reconhecido pelo Linux, dê o comando lsblk, como na imagem a seguir.</p>
+<p><figure><a class="lightgallery" href="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/lsblk.png" title="Alt text" data-thumbnail="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/lsblk.png" data-sub-html="<h2>Comando lsblk para descobrir qual nome foi dado ao cartão de memória pelo sistema</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="lsblk.png"
+            data-srcset="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/lsblk.png, lsblk.png 1.5x, /instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/lsblk.png 2x"
+            data-sizes="auto"
+            alt="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/lsblk.png" />
+    </a><figcaption class="image-caption">Comando lsblk para descobrir qual nome foi dado ao cartão de memória pelo sistema</figcaption>
+    </figure></p>
+<p>O comando da imagem acima foi dado para identificarmos o cartão de memória no sistema Linux. Comumente, o Linux reconhece um cartão Micro SD como /dev/mmcblk. Observem ainda na imagem acima, que temos um “mmcblk0” (destacado em vermelho na imagem). Se houvessem mais cartões de memória inseridos no computador, estariam listados como “mmcblk1”, “mmcblk2” e assim por diante. O mmcblk0p1 que está ligado ao “mmcblk0” é uma partição daquele cartão de memória. Devemos nos certificar de desmontar TODAS as partições associadas ao cartão de memória que queremos instalar o sistema. No nosso caso, temos apenas a partição mmcblk0p1 (e geralmente costuma ser só uma mesmo). Para desmontá-la:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">umount /dev/mmcblk0p1
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="4-gravação-do-sistema-no-cartão-de-memória">4. Gravação do sistema no cartão de memória</h1>
+<p>Finalmente, daremos o comando para gravar o sistema no cartão de memória. Certificado de que o cartão de memória está desmontado, usaremos a ferramenta dd para gravar a imagem do sistema que descompactamos lá na pasta de Download para o cartão. No meu caso o comando ficou:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">dd <span class="nv">bs</span><span class="o">=</span>4M <span class="k">if</span><span class="o">=</span>/home/user/Downloads/2018-06-27-raspbian-stretch-lite.img <span class="nv">of</span><span class="o">=</span>/dev/mmcblk0 <span class="nv">status</span><span class="o">=</span>progress <span class="nv">conv</span><span class="o">=</span>fsync
+</code></pre></td></tr></table>
+</div>
+</div><div class="details admonition warning open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw"></i>Cuidado<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">O destino da gravação deve ser o nome do dispositivo e não da partição. O arquivo de imagem do sistema termina em .img e não .zip.</div>
+        </div>
+    </div>
+<p><figure><a class="lightgallery" href="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/dd.png" title="Alt text" data-thumbnail="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/dd.png" data-sub-html="<h2>Gravação do sistema Raspbian para o cartão de memória</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="dd.png"
+            data-srcset="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/dd.png, dd.png 1.5x, /instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/dd.png 2x"
+            data-sizes="auto"
+            alt="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/dd.png" />
+    </a><figcaption class="image-caption">Gravação do sistema Raspbian para o cartão de memória</figcaption>
+    </figure></p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>Info<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">O parâmetro <code>bs=4M</code> significa que serão lidos e escritos 4MB por vez, <code>if=origem</code> / caminho completo da imagem do sistema a ser gravado, <code>of=destino</code> /  para onde a imagem vai ser gravada, <code>status=progress</code> para mostrar o progresso da gravação e <code>conv=fsync</code> indica que a gravação física dos dados (no cartão de memória) deve ser feita ainda dentro do processo do dd, e não somente começar quando o dd terminar seu processo. Esse comando come esses parâmetros são os recomendados pelo <a href="https://www.raspberrypi.org" target="_blank" rel="noopener noreffer">raspberrypi.org</a>.</div>
+        </div>
+    </div>
+<p>Terminado o processo como na imagem acima, o sistema Raspbian Lite está instalado no cartão de memória Micro SD. Para verificar o resultado da gravação, dê o comando fdisk -l. No dispositivo /dev/mmcblk0 deverá haver duas partições, sendo uma FAT32 e outra Linux (EXT4), como na imagem a seguir.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">fdisk -l
+</code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/fdisk.png" title="Alt text" data-thumbnail="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/fdisk.png" data-sub-html="<h2>Como ficou o cartão de memória após a gravação do Raspbian Lite</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="fdisk.png"
+            data-srcset="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/fdisk.png, fdisk.png 1.5x, /instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/fdisk.png 2x"
+            data-sizes="auto"
+            alt="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/fdisk.png" />
+    </a><figcaption class="image-caption">Como ficou o cartão de memória após a gravação do Raspbian Lite</figcaption>
+    </figure></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/index.md" target="_blank"></a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/" data-title="Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" WhatsApp" data-sharer="whatsapp" data-url="http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/" data-title="Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/" data-title="Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto" data-description="Instalação do Raspbian Lite em um cartão SD."><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/" data-title="Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title=" Trello" data-sharer="trello" data-url="http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/" data-title="Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto" data-description="Instalação do Raspbian Lite em um cartão SD."><i class="fab fa-trello fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/projeto-infra-com-raspberry-pi-3/" class="prev" rel="prev" title="Projeto Infra com Raspberry PI 3 Model B / Origem do Site"><i class="fas fa-angle-left fa-fw"></i>Projeto Infra com Raspberry PI 3 Model B / Origem do Site</a>
+            <a href="/primeiras-configuracoes-no-raspbian-lite/" class="next" rel="next" title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto">Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://coisasdeinfra.com/about" target="_blank">Matheus Dias Queiroz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":1000},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

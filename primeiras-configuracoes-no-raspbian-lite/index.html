@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto - Coisas de Infra</title><meta name="Description" content="Compartilhando Conhecimento"><meta property="og:title" content="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" />
+<meta property="og:description" content="Após fazer a instalação do sistema operacional Raspbian Lite no Raspberry Pi 3 no artigo anterior, precisamos agora realizar algumas configurações básicas, para que o sistema fique bem configurado e estável para o uso. Além disso, já vamos realizar algum gerenciamento de usuários, configurar o básico de rede, deixar o sistema acessível via SSH e atualizar o sistema. Mãos ao teclado!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" />
+<meta property="og:image" content="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/logo.png"/>
+<meta property="article:published_time" content="2018-11-30T10:00:00+00:00" />
+<meta property="article:modified_time" content="2018-11-30T10:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/logo.png"/>
+<meta name="twitter:title" content="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto"/>
+<meta name="twitter:description" content="Após fazer a instalação do sistema operacional Raspbian Lite no Raspberry Pi 3 no artigo anterior, precisamos agora realizar algumas configurações básicas, para que o sistema fique bem configurado e estável para o uso. Além disso, já vamos realizar algum gerenciamento de usuários, configurar o básico de rede, deixar o sistema acessível via SSH e atualizar o sistema. Mãos ao teclado!"/>
+<meta name="application-name" content="Coisas De Infra">
+<meta name="apple-mobile-web-app-title" content="Coisas De Infra"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" /><link rel="prev" href="http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/" /><link rel="next" href="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/coisasdeinfra.com\/primeiras-configuracoes-no-raspbian-lite\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/coisasdeinfra.com\/primeiras-configuracoes-no-raspbian-lite\/logo.png",
+                            "width":  720 ,
+                            "height":  383 
+                        }],"genre": "posts","wordcount":  2354 ,
+        "url": "http:\/\/coisasdeinfra.com\/primeiras-configuracoes-no-raspbian-lite\/","datePublished": "2018-11-30T10:00:00+00:00","dateModified": "2018-11-30T10:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "Matheus Dias Queiroz"},"author": {
+                "@type": "Person",
+                "name": "Matheus Dias Queiroz"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Coisas de Infra"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/coisasdeinfraLogo.png"
+        data-srcset="/coisasdeinfraLogo.png, /coisasdeinfraLogo.png 1.5x, /coisasdeinfraLogo.png 2x"
+        data-sizes="auto"
+        alt="/coisasdeinfraLogo.png"
+        title="/coisasdeinfraLogo.png" /></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Coisas de Infra"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/coisasdeinfraLogo.png"
+        data-srcset="/coisasdeinfraLogo.png, /coisasdeinfraLogo.png 1.5x, /coisasdeinfraLogo.png 2x"
+        data-sizes="auto"
+        alt="/coisasdeinfraLogo.png"
+        title="/coisasdeinfraLogo.png" /></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title"></h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://coisasdeinfra.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Matheus Dias Queiroz</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="30-11-2018">30-11-2018</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/primeiras-configuracoes-no-raspbian-lite/logo.png"
+        data-srcset="/primeiras-configuracoes-no-raspbian-lite/logo.png, /primeiras-configuracoes-no-raspbian-lite/logo.png 1.5x, /primeiras-configuracoes-no-raspbian-lite/logo.png 2x"
+        data-sizes="auto"
+        alt="/primeiras-configuracoes-no-raspbian-lite/logo.png"
+        title="/primeiras-configuracoes-no-raspbian-lite/logo.png" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span></span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#nesta-parte-teremos">Nesta parte teremos:</a></li>
+    <li><a href="#1-login-no-sistema">1. Login no sistema</a></li>
+    <li><a href="#2-configurações-regionais-do-sistema">2. Configurações regionais do sistema</a></li>
+    <li><a href="#3-expansão-da-partição-de-sistema-no-cartão-de-memória">3. Expansão da partição de sistema no cartão de memória</a></li>
+    <li><a href="#4-configuração-de-uma-senha-para-o-usuário-root">4. Configuração de uma senha para o usuário root</a></li>
+    <li><a href="#5-exclusão-do-usuário-pi">5. Exclusão do usuário pi</a></li>
+    <li><a href="#6-criação-de-um-novo-usuário">6. Criação de um novo usuário</a></li>
+    <li><a href="#7-configuração-do-serviço-openssh-server">7. Configuração do serviço OpenSSH Server</a></li>
+    <li><a href="#8-configuração-de-conexão-wi-fi-ou-via-cabo">8. Configuração de conexão Wi-Fi ou via cabo</a></li>
+    <li><a href="#9--conectar-se-ao-raspberry-via-ssh">9.  Conectar-se ao Raspberry via SSH</a></li>
+    <li><a href="#10-atualização-do-sistema">10. Atualização do sistema</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Após fazer a instalação do sistema operacional Raspbian Lite no Raspberry Pi 3 no artigo anterior, precisamos agora realizar algumas configurações básicas, para que o sistema fique bem configurado e estável para o uso. Além disso, já vamos realizar algum gerenciamento de usuários, configurar o básico de rede, deixar o sistema acessível via SSH e atualizar o sistema. Mãos ao teclado!</p>
+<h1 id="nesta-parte-teremos">Nesta parte teremos:</h1>
+<ul>
+<li>Login no sistema</li>
+<li>Configurações regionais do sistema (linguagem, layout de teclado, etc)</li>
+<li>Expansão da partição de sistema no cartão de memória</li>
+<li>Exclusão do usuário pi</li>
+<li>Criação de um novo usuário</li>
+<li>Configuração do serviço OpenSSH Server</li>
+<li>Configuração de conexão Wi-Fi ou via cabo</li>
+<li>Conectar-se ao Raspberry via SSH</li>
+<li>Atualização do sistema</li>
+</ul>
+<p>O que será necessário:</p>
+<ul>
+<li>Monitor com entrada HDMI</li>
+<li>Teclado</li>
+<li>Rede LAN configurada para que o Raspberry ingresse nela, tornado-se possível acessá-lo via SSH a partir de outro computador na rede.</li>
+</ul>
+<h1 id="1-login-no-sistema">1. Login no sistema</h1>
+<p>Alguns segundos após iniciar o sistema pela primeira vez, nos deparamos com uma tela de login onde é pedido, obviamente, usuário e senha. Para ser sincero, na primeira vez que instalei e iniciei o sistema, por ter sido precipitado e não ter lido as documentações no site Raspberrypi.org, me perguntei: e agora? hahaha. Esta informação está nas documentações do Raspberrypi.org neste link a seguir: <a href="https://www.raspberrypi.org/documentation/linux/usage/users.md">https://www.raspberrypi.org/documentation/linux/usage/users.md</a></p>
+<p>Mas, para você que está acompanhando essa ótima série de artigos sobre o projeto, aqui está a informação:</p>
+<blockquote>
+<p>Usuário: pi</p>
+<p>Senha: raspberry</p>
+</blockquote>
+<p>Como podemos observar, temos um nome de usuário e senha padrão bem forte no quesito segurança. Só que não!!!! Justamente por esse motivo, teremos um passo nesta parte do projeto explicando como excluir esse usuário padrão, já que a sua existência, na minha opinião, só é mais um pequeno risco à segurança de nosso sistema.</p>
+<h1 id="2-configurações-regionais-do-sistema">2. Configurações regionais do sistema</h1>
+<p>Para configurar localização e idioma do sistema, fuso-horário e layout de teclado, dê o comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo raspi-config
+</code></pre></td></tr></table>
+</div>
+</div><p>Aparecerá uma tela como a da imagem a seguir:
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="raspi-config-2-1024x433.png"
+        data-srcset="/primeiras-configuracoes-no-raspbian-lite/raspi-config-2-1024x433.png, raspi-config-2-1024x433.png 1.5x, /primeiras-configuracoes-no-raspbian-lite/raspi-config-2-1024x433.png 2x"
+        data-sizes="auto"
+        alt="/primeiras-configuracoes-no-raspbian-lite/raspi-config-2-1024x433.png"
+        title="raspi-config" /></p>
+<p>O intuito não é explicar detalhadamente as opções deste menu ou como se usa ele, pois não é foco do artigo dar explicações de nível mais iniciante. Porém, segue dicas de navegação para este menu:</p>
+<ul>
+<li>Setas do teclado para navegar dentre as opções</li>
+<li>Enter para confirmar uma opção / seleção</li>
+<li>Tab para alternar entre os sub-menus</li>
+<li>Espaço para marcar alguma opção do estilo checkbox</li>
+</ul>
+<p>Para configurar as opções regionais, selecione a opção <strong>4, Localisation Options</strong>. Dentro deste menu, recomendo que sejam configuradas as opções <strong>Locale, Timezone e Keyboard Layout</strong>, de acordo com suas preferências.</p>
+<p>Feitas estas configurações, não saia do menu do rasp-config ainda.</p>
+<h1 id="3-expansão-da-partição-de-sistema-no-cartão-de-memória">3. Expansão da partição de sistema no cartão de memória</h1>
+<p>Neste link <a href="https://www.raspberrypi.org/documentation/configuration/raspi-config.md">https://www.raspberrypi.org/documentation/configuration/raspi-config.md</a> é citado que se a instalação foi feita usando o NOOBS (método de instalação mais automático e fácil), então o sistema de arquivos foi expandido automaticamente quando o sistema foi iniciado pela primeira vez. Como não é o nosso caso, ou seja, utilizamos outro método para realizar a instalação, devemos nos certificar de que o sistema de arquivos seja expandido.</p>
+<p>Mas afinal, o que é isso? Por que isso é necessário expandir o sistema de arquivos?</p>
+<p>Como instalamos o sistema a partir de uma imagem pronta, apenas copiando-a (da maneira correta, claro) para o cartão de memória, ela ocupa um espaço inicial de aproximadamente 2GB no cartão, e o sistema de arquivos do diretório root (me refiro ao diretório / e não a pasta “home” do usuário root) que é EXT4, reconhece que está instalado em uma partição deste tamanho, somente. Logo, precisamos informar ao sistema de arquivos desta partição que ela tem mais espaço para trabalhar, já que o cartão de memória é maior que apenas 2GB. Isto pode ser feito através do menu raspi-config.</p>
+<p>Após entrar no menu do raspi-config com <code>$sudo raspi-config</code>, selecione a opção <strong>Advanced Options</strong> e depois a opção <strong>Expand Filesystem</strong>. Quando terminar, dê finish e selecione yes para reiniciar o Raspberry. E pronto, seu sistema de arquivo agora reconhece todo o espaço disponível do sistemas de arquivos.</p>
+<h1 id="4-configuração-de-uma-senha-para-o-usuário-root">4. Configuração de uma senha para o usuário root</h1>
+<p>Vamos configurar uma senha para o usuário root. O motivo de fazer isso é porque ao longo do projeto serão feitas muitas tarefas administrativas e estar em uma sessão como root facilita o trabalho, desde que as ações sejam feitas com cuidado e que saibamos o que estamos fazendo.</p>
+<p>Dê o seguinte comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo passwd root
+&lt;digite a nova senha&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>Por fim, digite <strong>su</strong> e logue como root usando a senha que acabou de ser configurada.</p>
+<p>Agora que está logado como root, observe que o símbolo que precede o que você digita é <strong>#</strong> e não mais <strong>$</strong>. Quando está <strong>#</strong> significa que os comandos serão executados com os privilégios de root (administrador do sistema), enquanto <strong>$</strong> significa que serão executados em privilégios do usuário em que está logado.</p>
+<h1 id="5-exclusão-do-usuário-pi">5. Exclusão do usuário pi</h1>
+<p>Antes de começar, certifique-se de fazer logout do usuário pi (caso tenha feito login com o mesmo) dando o comando exit. &ldquo;Logue&rdquo; com root neste momento.</p>
+<p>O fato do usuário pi ser um usuário padrão do sistema Raspbian representa um risco à segurança do nosso sistema. Dois exemplos que justificam o risco à segurança:</p>
+<p><strong>1.</strong> Se tivermos configurado o serviço SSH aberto para Internet para que possamos administrar nosso sistema à distância, um atacante, ao descobrir que por trás do SSH há um Raspberry (e sim, isso é possível), poderá refinar suas tentativas de login usando como nome de usuário o pi, pois sendo um Raspberry sabe que esse usuário existe ali. Isso diminui o nível de dificuldade de um ataque por força bruta. Sabendo o nome de usuário, um atacante só precisa trabalhar para descobrir a senha. Não sabendo o nome de usuário, precisa trabalhar para descobrir os dois. Por isso é importante especificarmos no arquivo de configuração do SSH somente os usuários que queremos que tenham acesso (veremos isto na seção de configuração SSH).</p>
+<p><strong>2.</strong> Se por algum motivo um atacante ganha acesso ao nosso sistema, ele saberá que o usuário pi existe e ainda que está no grupo sudo, podendo executar comandos com privilégios de administrador.</p>
+<p>Para excluir este usuário (pi) do sistema, dê o seguinte comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">deluser pi
+</code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>Info<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Curiosidade: O comando <code>deluser</code> é uma espécie de alias (apelido/atalho) para o comando <code>userdel</code> já com os parâmetros que também removem a pasta home deste usuário. Portanto, certifique-se de fazer backup antes de utilizar <code>deluser</code>.</div>
+        </div>
+    </div>
+<h1 id="6-criação-de-um-novo-usuário">6. Criação de um novo usuário</h1>
+<p>Agora vamos criar um novo usuário. Sugiro que esse usuário tenha o seu nome ou um apelido. Algumas seções a frente, este usuário será usado para fazer login no serviço SSH.</p>
+<p>Para exemplificar, escolhemos o nome <strong>infra</strong> para nosso usuário.</p>
+<p>Dê o comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">adduser infra
+</code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>Info<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Assim como o <code>deluser</code>, <code>adduser</code> também é uma espécie de front-end, mas para o comando <code>useradd</code>. <code>adduser</code> usa o comando useradd com os parâmetros que já criam uma senha e um diretório home para o usuário que está sendo criado.</div>
+        </div>
+    </div>
+<p>Recomendo fortemente a configuração de uma senha forte, usando letras maiúsculas e minúsculas, números e caracteres especiais.</p>
+<h1 id="7-configuração-do-serviço-openssh-server">7. Configuração do serviço OpenSSH Server</h1>
+<p>Para podermos acessar o Raspberry remotamente, ou seja, de outro computador/sistema para dar comandos e etc, utilizaremos o famoso serviço de terminal remoto OpenSSH Server. Mais informações sobre este serviço em <a href="https://www.openssh.com/">https://www.openssh.com/</a>.</p>
+<p>Por padrão o SSH server já vem instalado no sistema Raspbian, porém não é iniciado junto ao sistema, e muito provavelmente por motivos de segurança mesmo. Logo, nosso primeiro passo é habilitar este serviço para que seja inicializado durante o boot do sistema.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">systemctl <span class="nb">enable</span> ssh
+</code></pre></td></tr></table>
+</div>
+</div><p>Ao fazer isso, devemos obrigatoriamente configurar este serviço antes de reiniciar o sistema (ou iniciar esse serviço manualmente), pois suas configurações padrões não nos trarão muita segurança.</p>
+<p>Para começar, recomendo fazer uma cópia do arquivo original de configuração para que possamos fazer alterações sem medo. Caso “dê ruim”, só restaurar o arquivo original e começar de novo. Faça isso com:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+</code></pre></td></tr></table>
+</div>
+</div><p>O que vamos fazer no arquivo de configuração é simples e básico: dar permissão de acesso ao serviço somente para o usuário que criamos anteriormente, no meu caso “infra” e não permitir o login do “root”.</p>
+<p>Acesse o arquivo de configuração /etc/ssh/sshd_config com o editor de texto de sua preferência. No meu caso foi utilizado o nano (nem sempre vamos pelo hard way, rsrs).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">nano /etc/ssh/sshd_config
+</code></pre></td></tr></table>
+</div>
+</div><p>Na seção “# Authentication” descomente a linha PermitRootLogin e altere seu valor de prohibit-password para no, ficando:</p>
+<blockquote>
+<p>PermitRootLogin no</p>
+</blockquote>
+<p>E logo na linha a seguir, adicione:</p>
+<blockquote>
+<p>AllowUsers infra</p>
+</blockquote>
+<p>Ficando:</p>
+<blockquote>
+<p>PermitRootLogin no</p>
+<p>AllowUsers infra</p>
+</blockquote>
+<p>Se nesse momento já estiver curioso ou tiver necessidade de fazer configurações mais específicas neste serviço, recomendo a leitura do manual man sshd_config. Também, de maneira mais resumida, no próprio arquivo de configuração do SSH há várias descrições e explicações, além de exemplos de vários parâmetros que podem ser configurados em formato de comentário.</p>
+<p>Com esses dois parâmetros básico evitamos que ataques de força bruta vindos da Internet acertem nosso usuário com facilidade. Como eu disse anteriormente em outra seção, aumentamos o nível de dificuldade de um ataque de força bruta pois estamos evitando que o atacante acerte o nome de usuário. Geralmente as tentativas desses ataques são direcionados a usuários e senha “manjados”, como “casa”, “home”, o óbvio “root” e senhas 1234 e semelhantes. Logo, com um nome de usuário não óbvio, uma senha forte e o serviço SSH minimamente configurado, temos uma certa margem de segurança para iniciar as próximas partes.</p>
+<h1 id="8-configuração-de-conexão-wi-fi-ou-via-cabo">8. Configuração de conexão Wi-Fi ou via cabo</h1>
+<p>Feitas todas as tarefas das seções anteriores, chegou o momento de conectar o Raspberry na rede. Se você vai conectá-lo em sua rede via cabo, não há muito o que fazer, somente “espetar” o cabo ethernet mesmo, e então pular para a seção seguinte. Aliás, a configuração final do projeto será com o Raspberry conectado via cabo. Planeje-se para isso.</p>
+<p>Mas, se neste momento você quer conectá-lo, ao menos temporariamente, via rede Wi-Fi para fazer a atualização do sistema e instalação dos pacotes/serviços que vamos utilizar, execute as tarefas a seguir.</p>
+<p>Esta dica também é válida para quem quer aprender a se conectar a uma rede Wi-Fi via terminal Linux.</p>
+<p>Confira o nome da interface Wi-Fi do Raspberry com o comando ip a, que é um alias (apelido, atalho) para o comando ip address. Provavelmente a interface Wi-Fi é wlan0. Se for outro nome, como exemplo, wlp2s0, basta usar este nome. Em um próximo artigo iremos abordar o assunto de nomenclaturas de interfaces de rede, configurando a maneira ideal para deixar um nome fixo para a interface.</p>
+<p>Aqui seguiremos com wlan0. Agora, dê o seguinte comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">wpa_passphrase <span class="s2">&#34;nomeDaRedeWifi&#34;</span> <span class="s2">&#34;senhaDaRedeWifi&#34;</span> &gt;&gt; /etc/wpa_supplicant/wpa_supplicant.conf
+</code></pre></td></tr></table>
+</div>
+</div><p>Então, acesse o arquivo <code>/etc/wpa_supplicant/wpa_supplicant.conf</code> com o editor de textos de sua preferência. Observe que a senha da rede Wi-Fi está exposta no arquivo, porém como comentário. Pode apagar essa linha. Salve o arquivo e saia do editor.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>Observação<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">A linha cheia de caracteres nesse arquivo é o hash da sua senha Wi-Fi</div>
+        </div>
+    </div>
+<p>Agora, dê o comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">wpa_cli -i wlan0 reconfigure
+</code></pre></td></tr></table>
+</div>
+</div><p>Aparecerá um OK.</p>
+<p>Neste momento, seu Raspberry já estará conectado a rede, mas se o sistema for reinicializado não se conectará automaticamente.</p>
+<p>Então, para finalizar, devemos configurar o arquivo /etc/network/interfaces para que “leia” o arquivo que configuramos a rede Wi-Fi (<code>/etc/wpa_supplicant/wpa_supplicant.conf</code>) e assim saiba como se conectar automaticamente quando o sistema inicia.</p>
+<p>Edite o arquivo <code>/etc/network/interfaces</code> com o editor de sua preferência. Vá para a última linha e acrescente:</p>
+<blockquote>
+<p>auto wlan0</p>
+<p>iface wlan0 inet dhcp</p>
+<p>wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</p>
+</blockquote>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>Info<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><code>auto wlan0</code> define que essa interface será “levantada” quando o comando <code>ifup -a</code> for usado, o qual inclusive é usado durante o processo de boot. <code>iface wlan0 inet dhcp</code> define que a interface wlan0 usa a família de endereços <code>inet</code>, parâmetro usado para redes TCP/IP; e <code>dhcp</code> define que o endereço IP será atribuído automaticamente via serviço DHCP.
+Pode parecer não ideal configurar o arquivo interfaces tendo o serviço de dhcp client rodando, mas primordialmente o arquivo interfaces vem antes e é a maneira mais ideal de se configurar interfaces de rede no linux na minha opinião. Se visto os logs, o serviço DHCP pode apresentar “erros” por haver configuração manual no arquivo interfaces, mas na verdade é um “erro” somente porque ele diz não ser possível usar suas próprias configurações (do serviço DHCP) para aquela interface, já que ela está manualmente configurada no arquivo interfaces. Então, sem problemas.</div>
+        </div>
+    </div>
+<div class="details admonition warning open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw"></i>Importante<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Se você fez a configuração Wi-Fi do seu Raspberry e posteriormente irá utilizá-lo via cabo (a próxima parte deste projeto necessitará da conexão via cabo), acrescente também os parâmetros para a interface ethernet no arquivo interfaces, ficando:</p>
+<blockquote>
+<p><code>auto eth0</code></p>
+<p><code>iface eth0 inet dhcp</code></p>
+</blockquote>
+<p>Sem isso, ao conectar o cabo no Raspberry nada irá acontecer, pois a interface não foi instruída a receber endereço IP via DHCP.</p>
+</div>
+        </div>
+    </div>
+<h1 id="9--conectar-se-ao-raspberry-via-ssh">9.  Conectar-se ao Raspberry via SSH</h1>
+<p>Terminadas as tarefas da seção anterior, recomendo a reinicialização do Raspberry. Para fazer isso via comando, dê:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">shutdown -r now
+</code></pre></td></tr></table>
+</div>
+</div><p>Aguarde o sistema iniciar, faça login (como usuário que foi criado ou mesmo como root) e verifique o endereço ip obtido pelo Raspberry com o comando ip a. Anote este endereço e então pode finalmente desconectar o teclado e o monitor do Rasp.</p>
+<p>De qualquer computador com cliente SSH, seja Linux, Mac ou Windows (windows 10 possui cliente SSH nativo agora, <a href="https://tecnoblog.net/229971/windows-10-ativar-openssh-cliente/),">https://tecnoblog.net/229971/windows-10-ativar-openssh-cliente/),</a> vamos nos conectar ao Raspberry através do usuário que criamos seguindo a sintaxe:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">ssh userConfigurado@ip_do_Raspberry
+</code></pre></td></tr></table>
+</div>
+</div><p>No caso do exemplo desse artigo:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">ssh infra@ip_do_raspberry
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="10-atualização-do-sistema">10. Atualização do sistema</h1>
+<p>Finalmente a última seção desta parte. Já fizemos várias configurações iniciais e nosso sistema está utilizável. Devemos agora atualizá-lo, para que tudo fique em ordem.</p>
+<p>Vale citar que, como atualizar o sistema é uma tarefa administrativa, após logar via SSH com o usuário que foi configurado, você deverá logar (mudar) como root. Basta dar o comando su e inserir a senha configurada para o usuário root.</p>
+<p>Como root no sistema, dê:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">aptitude update
+aptitude full-upgrade
+</code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>Info<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">O parâmetro full-upgrade atualiza os pacotes para as versões mais recentes e também remove pacotes antigos ou que não são mais necessários.</div>
+        </div>
+    </div>
+<p>Terminamos! =D</p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/primeiras-configuracoes-no-raspbian-lite/index.md" target="_blank"></a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" WhatsApp" data-sharer="whatsapp" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title=" Trello" data-sharer="trello" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/" class="prev" rel="prev" title="Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto"><i class="fas fa-angle-left fa-fw"></i>Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto</a>
+            <a href="/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" class="next" rel="next" title="Raspberry como roteador Wi-Fi – Parte 3 do Projeto">Raspberry como roteador Wi-Fi – Parte 3 do Projeto<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://coisasdeinfra.com/about" target="_blank">Matheus Dias Queiroz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":1000},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

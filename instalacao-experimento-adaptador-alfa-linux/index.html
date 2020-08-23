@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho - Coisas de Infra</title><meta name="Description" content="Compartilhando Conhecimento"><meta property="og:title" content="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho" />
+<meta property="og:description" content="Veja como instalar o adaptador Wi-Fi USB Alfa AWUS03NH no Linux, um experimento de comparação entre o Wi-Fi interno de um Raspberry Pi 3 B e o Alfa, usando a ferramenta iperf3; e também como utilizá-lo em modo AP (Access Point / ponto de acesso Wi-Fi)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" />
+<meta property="og:image" content="http://coisasdeinfra.com/coisasdeinfra.png"/>
+<meta property="article:published_time" content="2019-01-18T10:00:00+00:00" />
+<meta property="article:modified_time" content="2019-01-18T10:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://coisasdeinfra.com/coisasdeinfra.png"/>
+
+<meta name="twitter:title" content="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho"/>
+<meta name="twitter:description" content="Veja como instalar o adaptador Wi-Fi USB Alfa AWUS03NH no Linux, um experimento de comparação entre o Wi-Fi interno de um Raspberry Pi 3 B e o Alfa, usando a ferramenta iperf3; e também como utilizá-lo em modo AP (Access Point / ponto de acesso Wi-Fi)."/>
+<meta name="application-name" content="Coisas De Infra">
+<meta name="apple-mobile-web-app-title" content="Coisas De Infra"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" /><link rel="prev" href="http://coisasdeinfra.com/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/coisasdeinfra.com\/instalacao-experimento-adaptador-alfa-linux\/"
+        },"genre": "posts","wordcount":  1884 ,
+        "url": "http:\/\/coisasdeinfra.com\/instalacao-experimento-adaptador-alfa-linux\/","datePublished": "2019-01-18T10:00:00+00:00","dateModified": "2019-01-18T10:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "Matheus Dias Queiroz"},"author": {
+                "@type": "Person",
+                "name": "Matheus Dias Queiroz"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Coisas de Infra"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/coisasdeinfraLogo.png"
+        data-srcset="/coisasdeinfraLogo.png, /coisasdeinfraLogo.png 1.5x, /coisasdeinfraLogo.png 2x"
+        data-sizes="auto"
+        alt="/coisasdeinfraLogo.png"
+        title="/coisasdeinfraLogo.png" /></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Coisas de Infra"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/coisasdeinfraLogo.png"
+        data-srcset="/coisasdeinfraLogo.png, /coisasdeinfraLogo.png 1.5x, /coisasdeinfraLogo.png 2x"
+        data-sizes="auto"
+        alt="/coisasdeinfraLogo.png"
+        title="/coisasdeinfraLogo.png" /></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title"></h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://coisasdeinfra.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Matheus Dias Queiroz</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="18-01-2019">18-01-2019</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span></span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#contextualização">Contextualização</a></li>
+    <li><a href="#instalação">Instalação</a>
+      <ul>
+        <li><a href="#debian-gnulinux-96-stretch">Debian GNU/Linux 9.6 (stretch)</a></li>
+        <li><a href="#raspberry--raspbian-gnulinux-96-stretch">Raspberry – Raspbian GNU/Linux 9.6 (stretch)</a></li>
+      </ul>
+    </li>
+    <li><a href="#experimento">Experimento</a>
+      <ul>
+        <li><a href="#medições-e-testes-entre-notebook-e-wi-fi-interno-do-raspberry-pi-3-b">Medições e testes entre notebook e Wi-Fi interno do Raspberry Pi 3 B</a></li>
+        <li><a href="#teste-com-a-gaveta-fechada">Teste com a gaveta fechada</a></li>
+        <li><a href="#teste-com-a-gaveta-aberta">Teste com a gaveta aberta</a></li>
+      </ul>
+    </li>
+    <li><a href="#medições-e-testes-entre-notebook-e-adaptador-alfa-wi-fi-usb-awus036nh">Medições e testes entre notebook e Adaptador Alfa Wi-Fi USB AWUS036NH</a>
+      <ul>
+        <li><a href="#teste-com-a-gaveta-fechada-1">Teste com a gaveta fechada</a></li>
+      </ul>
+    </li>
+    <li><a href="#bônus-adaptador-wi-fi-usb-alfa-awus036nh-em-modo-ap">Bônus: adaptador Wi-Fi USB Alfa AWUS036NH em modo AP</a></li>
+    <li><a href="#conclusão">Conclusão</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Veja como instalar o adaptador Wi-Fi USB Alfa AWUS03NH no Linux, um experimento de comparação entre o Wi-Fi interno de um Raspberry Pi 3 B e o Alfa, usando a ferramenta <strong>iperf3</strong>; e também como utilizá-lo em modo AP (Access Point / ponto de acesso Wi-Fi).</p>
+<h1 id="contextualização">Contextualização</h1>
+<p>O que me levou a procurar um adaptador Wi-Fi USB (de boa qualidade) foi devido ao meu projeto de infraestrutura com Raspberry Pi 3 B. Nesse projeto eu configuro o Raspberry para ser o roteador/server da minha rede. Para saber mais sobre esse projeto, acesse aqui.</p>
+<p>Depois que concluí o projeto base, que era utilizar o Raspberry para fornecer rede Wi-Fi e gerir a rede toda (acesso a internet e rede local), surgiu uma pulga atrás da orelha: a força do sinal Wi-Fi na minha casa (onde o Rasp está hospedado). O que agravou o problema do sinal Wi-Fi emitido pelo Raspberry foi a utilização de um case, para que seja possível utilizar um cooler que por sua vez auxilia a dissipação de calor da placa. Esse case, de acrílico, deixa o Raspberry mais fechado/isolado e consequentemente se torna um obstáculo para a propagação do sinal Wi-Fi.</p>
+<p><figure><a class="lightgallery" href="/instalacao-experimento-adaptador-alfa-linux/rasp-case-edit-993x1024.png" title="Alt text" data-thumbnail="/instalacao-experimento-adaptador-alfa-linux/rasp-case-edit-993x1024.png" data-sub-html="<h2>Raspberry Pi 3 B em um case acrílico para acoplar cooler (ignora o dicionário como base de apoio, rsrs).</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="rasp-case-edit-993x1024.png"
+            data-srcset="/instalacao-experimento-adaptador-alfa-linux/rasp-case-edit-993x1024.png, rasp-case-edit-993x1024.png 1.5x, /instalacao-experimento-adaptador-alfa-linux/rasp-case-edit-993x1024.png 2x"
+            data-sizes="auto"
+            alt="/instalacao-experimento-adaptador-alfa-linux/rasp-case-edit-993x1024.png" />
+    </a><figcaption class="image-caption">Raspberry Pi 3 B em um case acrílico para acoplar cooler (ignora o dicionário como base de apoio, rsrs).</figcaption>
+    </figure></p>
+<p>Logo, achei que uma placa Wi-Fi externa, de preferência com antena externa também, me ajudaria a resolver o problema e propagar um sinal Wi-Fi de maior intensidade e qualidade pela casa.</p>
+<p>Depois de pesquisar, escolhi o adaptador Wi-Fi USB da marca ALFA, modelo AWUS036NH. Aparentemente ele é muito utilizado em conjunto com o Kali Linux – sistema Linux voltado para Pentest -, por Ethical Hackers, para que seja possível alcançar mais redes Wi-Fi do que uma placa de notebook consegue. Também é importante notar que os <strong>dispositivos originais utilizam chipsets Ralink</strong>, já que durante minhas pesquisas eu observei que há imitações desse dispositivo no mercado que utilizam outros chipsets e tem desempenho inferior. Então, fique atento!</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="alfa-caixa-edit.png"
+        data-srcset="/instalacao-experimento-adaptador-alfa-linux/alfa-caixa-edit.png, alfa-caixa-edit.png 1.5x, /instalacao-experimento-adaptador-alfa-linux/alfa-caixa-edit.png 2x"
+        data-sizes="auto"
+        alt="/instalacao-experimento-adaptador-alfa-linux/alfa-caixa-edit.png"
+        title="Alt text" /></p>
+<p>Caixa do produto (já vazia) e, a direita, adaptador alfa em um case que vem junto ao produto para fixação (há uma borracha de pressão embaixo do case)</p>
+<p>Eu utilizo meu notebook com monitor, teclado e mouse externos, e assim o deixo em uma “gaveta” embaixo da mesa, daquelas onde antigamente existiam para se apoiar o teclado do computador.</p>
+<p><figure><a class="lightgallery" href="/instalacao-experimento-adaptador-alfa-linux/noteEmbaixoMesa.png" title="Alt text" data-thumbnail="/instalacao-experimento-adaptador-alfa-linux/noteEmbaixoMesa.png" data-sub-html="<h2>Notebook fechado embaixo da mesa</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="noteEmbaixoMesa.png"
+            data-srcset="/instalacao-experimento-adaptador-alfa-linux/noteEmbaixoMesa.png, noteEmbaixoMesa.png 1.5x, /instalacao-experimento-adaptador-alfa-linux/noteEmbaixoMesa.png 2x"
+            data-sizes="auto"
+            alt="/instalacao-experimento-adaptador-alfa-linux/noteEmbaixoMesa.png" />
+    </a><figcaption class="image-caption">Notebook fechado embaixo da mesa</figcaption>
+    </figure></p>
+<p>Isso piorava mais ainda a situação do sinal Wi-Fi, e eu estava sofrendo (risos de nervoso).</p>
+<p>Depois de comprar o adaptador Alfa, decidi realizar um experimento para comparar a diferença que ele faria na qualidade do sinal Wi-Fi em relação ao do Raspberry. Acompanhe o experimento pelas próximas seções.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>Nota<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">efetuei a compra do adaptador na loja Submarino. Foi naqueles esquemas de “vendido por loja X, entregue por loja Y”. Nesse caso, comprei via Submarino em uma loja chamada MicroPreços. Dispositivo original, show de bola!</div>
+        </div>
+    </div>
+<h1 id="instalação">Instalação</h1>
+<p>Nessa seção veremos o que é necessário fazer para usar o adaptador Wi-Fi alfa no Linux. Exemplifiquei a instalação em dois sistemas: Debian GNU/Linux 9.6 (stretch) e, no também baseado em Debian, Raspbian GNU/Linux 9.6 (stretch), o sistema Linux para Raspberry.</p>
+<h2 id="debian-gnulinux-96-stretch">Debian GNU/Linux 9.6 (stretch)</h2>
+<p>No Debian, ao conectar o adaptador Wi-Fi USB no Raspberry e tentar “subí-lo” usando o comando <code>ip link set dev wlan1 up</code>, foi apresentado um <strong>erro</strong> ao carregar o módulo/driver que o sistema identificou ser o mais correto para o dispositivo: <strong>“firmware failed to load rt2870.bin”</strong>. Ao pesquisar, notei que o firmware proprietário da ralink foi removido do Linux desde a versão 2.6.30 do kernel. Por ser proprietário, não vem nativamente pré-instalado junto a distribuição Debian (eu não disse baseadas em Debian). O pacote deste firmware está disponível no repositório <strong>“non-free”</strong> do Debian. Então, bastou adicionar a linha <code>deb http://ftp.us.debian.org/debian stretch main contrib non-free</code> no arquivo <code>/etc/apt/sources.list</code> e prosseguir com a instalação dando o seguintes comandos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">aptitude update
+aptitude install firmware-ralink
+</code></pre></td></tr></table>
+</div>
+</div><p>Com o devido firmware/módulo instalado, basta dar o comando <code>ip link set dev wlan1 up</code> para que o adaptador fique disponível para uso sem nenhum problema. Depois de “subi-lo”, para que se possa usá-lo, é necessário configurá-lo manualmente. Para que isso não seja necessário, acredito que a melhor opção é configurar os parâmetros desejados para essa interface no arquivo <code>/etc/network/interfaces</code> e então utilizar as ferramentas <code>ifup</code> e <code>ifdown</code> para manipular a interface de rede.</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Dicas<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ol>
+<li>verifique a nomenclatura da sua interface e a especifique corretamente no comando <code>ip link set dev interface up</code>. No meu caso, o sistema reconheceu o adaptador como <code>wlan1</code>, mas o seu sistema pode reconhecer de maneira diferente. Dê o comando ip a ou <code>ip link</code> ou <code>lshw -class network</code> para identificar como a sua interface foi nomeada pelo sistema.</li>
+<li>Se quiser saber como configurar o arquivo interfaces do Linux e também entender melhor o sistema de nomenclatura de interfaces de rede do Linux, acesse o seguinte link: http://192.168.15.16/raspberry-como-roteador-wi-fi-parte-3-do-projeto/</li>
+</ol>
+</div>
+        </div>
+    </div>
+<h2 id="raspberry--raspbian-gnulinux-96-stretch">Raspberry – Raspbian GNU/Linux 9.6 (stretch)</h2>
+<p>Já no Raspberry não foi necessária a instalação de nenhum driver ou firmware adicional. Veja como o sistema reconheceu o meu adaptador:</p>
+<p><figure><a class="lightgallery" href="/instalacao-experimento-adaptador-alfa-linux/lshw_network_raspberry-edit_2.png" title="Alt text" data-thumbnail="/instalacao-experimento-adaptador-alfa-linux/lshw_network_raspberry-edit_2.png" data-sub-html="<h2>Adaptador Alfa descrito no comando lshw -class network</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="lshw_network_raspberry-edit_2.png"
+            data-srcset="/instalacao-experimento-adaptador-alfa-linux/lshw_network_raspberry-edit_2.png, lshw_network_raspberry-edit_2.png 1.5x, /instalacao-experimento-adaptador-alfa-linux/lshw_network_raspberry-edit_2.png 2x"
+            data-sizes="auto"
+            alt="/instalacao-experimento-adaptador-alfa-linux/lshw_network_raspberry-edit_2.png" />
+    </a><figcaption class="image-caption">Adaptador Alfa descrito no comando lshw -class network</figcaption>
+    </figure></p>
+<p>Além disso, não foi necessário alimentar (energizar) o adaptador de forma externa, como é feito com um HD Externo para que funcione no Raspberry, por exemplo. Bastou ligar diretamente na porta USB do Raspberry e usar. Porém, vale citar que no meu caso apenas o adaptador Wi-Fi está usando energia das portas USB. A única coisa a mais que tenho ligada é o HD Externo, mas esse é alimentado de forma externa. Saiba mais sobre isso em <a href="http://192.168.15.16/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/">http://192.168.15.16/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/</a>.</p>
+<h1 id="experimento">Experimento</h1>
+<p>Para conseguir comparar de maneira mais científica, do que só olhar barrinha de sinal na barra de tarefas do S.O, se o adaptador Wi-Fi USB Alfa daria maior alcance e qualidade para o sinal Wi-Fi, elaborei o seguinte teste:</p>
+<ul>
+<li>Comando (no Linux) iwlist interfaceWiFi scanning para medir intensidade e qualidade do sinal Wi-Fi;</li>
+<li>Uso da ferramenta <strong>iperf3</strong>. Segundo o próprio site da ferramenta, <a href="https://iperf.fr/">https://iperf.fr/</a>, ela serve para medir o máximo alcançável da largura de banda de redes IP, sendo compatível com vários protocolos (UDP, IPv6… por exemplo) e reportando vários tipos de dados de resultado;</li>
+<li>Fazer a medição e uso da ferramenta com meu notebook conectado ao Wi-Fi interno do Raspberry e depois repetir os mesmos testes com adaptador Alfa no mesmo lugar físico onde o Raspberry estava posicionado.</li>
+</ul>
+<p>Vamos aos testes!</p>
+<h2 id="medições-e-testes-entre-notebook-e-wi-fi-interno-do-raspberry-pi-3-b">Medições e testes entre notebook e Wi-Fi interno do Raspberry Pi 3 B</h2>
+<p>Emiti do meu notebook o comando <code>iwlist wlp2s0 scanning</code> (sendo wlp2s0 o nome da minha interface Wi-Fi) 3 vezes para elaborar uma média de dois dados que esse comando retorna, <strong>“Quality”</strong> e <strong>“Signal level”</strong>.</p>
+<p>Quanto a ferramenta <strong>iperf3</strong>, no lado servidor é necessário emitir o comando <code>iperf3 -s</code> e no lado cliente, para dar inicio ao teste, emitir o comando <code>iperf3 -c ip do servidor -t 60</code>. O <code>-t 60</code> é para que a ferramenta fique 60 segundos fazendo o teste e depois te retorne uma média disso. Se nada for especificado, por padrão, o <code>iperf3</code> faz um teste durante 10 segundos.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>Lembrete<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">É necessário abrir a porta na qual o iperf funciona no lado servidor. A porta que o iperf3 trabalha é a 5201. Para liberá-la no iptables, segue a regra… <code>iptables -A INPUT -p tcp –dport 5201 -i interface -j ACCEPT</code> e/ou se for IPv6 <code>ip6tables -A INPUT -p tcp –dport 5201 -i interface -j ACCEPT</code></div>
+        </div>
+    </div>
+<p>Como eu já citei na seção de <strong>Contextualização</strong>, eu uso meu notebook embaixo da mesa, apoiado naquela “gaveta” que antigamente se costumava utilizar para apoiar o teclado. Então resolvi testar duas condições: <strong>1) teste com a gaveta fechada e 2) teste com a gaveta aberta</strong></p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>Observação<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Estava esquecendo… tampa do notebook sempre fechada nos testes.</div>
+        </div>
+    </div>
+<h2 id="teste-com-a-gaveta-fechada">Teste com a gaveta fechada</h2>
+<p>Médias dos parâmetros de medição <strong>Quality</strong> e <strong>Signal level</strong> do comando <code>iwlist wlp2s0</code> scanning:</p>
+<ul>
+<li>Quality 25/70</li>
+<li>Signal level = -85dBm</li>
+</ul>
+<p>Resultado do teste com ferramenta iPerf3:</p>
+<p><figure><a class="lightgallery" href="/instalacao-experimento-adaptador-alfa-linux/iperf3_dellRasp_1-edit.png" title="Alt text" data-thumbnail="/instalacao-experimento-adaptador-alfa-linux/iperf3_dellRasp_1-edit.png" data-sub-html="<h2> Resultado do teste com a ferramenta iperf3: notebook (gaveta fechada) &lt;–&gt; Raspberry</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="iperf3_dellRasp_1-edit.png"
+            data-srcset="/instalacao-experimento-adaptador-alfa-linux/iperf3_dellRasp_1-edit.png, iperf3_dellRasp_1-edit.png 1.5x, /instalacao-experimento-adaptador-alfa-linux/iperf3_dellRasp_1-edit.png 2x"
+            data-sizes="auto"
+            alt="/instalacao-experimento-adaptador-alfa-linux/iperf3_dellRasp_1-edit.png" />
+    </a><figcaption class="image-caption"> Resultado do teste com a ferramenta iperf3: notebook (gaveta fechada) <–> Raspberry</figcaption>
+    </figure></p>
+<p>Como pode ser observado na imagem anterior, em um intervalo de <strong>60 segundos</strong> foi transferido do notebook para o Raspberry <strong>22MBytes</strong> de dados e a banda larga calculada foi de <strong>3.11Mbits/sec</strong>.</p>
+<h2 id="teste-com-a-gaveta-aberta">Teste com a gaveta aberta</h2>
+<p>Só para entender melhor a situação de “gaveta aberta” segue imagem do significa isso:</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="noteGaveta_aberta.png"
+        data-srcset="/instalacao-experimento-adaptador-alfa-linux/noteGaveta_aberta.png, noteGaveta_aberta.png 1.5x, /instalacao-experimento-adaptador-alfa-linux/noteGaveta_aberta.png 2x"
+        data-sizes="auto"
+        alt="/instalacao-experimento-adaptador-alfa-linux/noteGaveta_aberta.png"
+        title="Alt text" /></p>
+<p>Médias dos parâmetros de medição <strong>Quality</strong> e <strong>Signal level</strong> do comando <code>iwlist wlp2s0 scanning</code>:</p>
+<ul>
+<li><strong>Quality 21/70</strong></li>
+<li><strong>Signal level = -89dBm</strong></li>
+</ul>
+<p>Resultado do teste com ferramenta iPerf3:</p>
+<p><figure><a class="lightgallery" href="/instalacao-experimento-adaptador-alfa-linux/iperf3_dellRasp_2-edit.png" title="Alt text" data-thumbnail="/instalacao-experimento-adaptador-alfa-linux/iperf3_dellRasp_2-edit.png" data-sub-html="<h2>Resultado do teste com a ferramenta iperf3: notebook (gaveta aberta) &lt;–&gt; Raspberry </h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="iperf3_dellRasp_2-edit.png"
+            data-srcset="/instalacao-experimento-adaptador-alfa-linux/iperf3_dellRasp_2-edit.png, iperf3_dellRasp_2-edit.png 1.5x, /instalacao-experimento-adaptador-alfa-linux/iperf3_dellRasp_2-edit.png 2x"
+            data-sizes="auto"
+            alt="/instalacao-experimento-adaptador-alfa-linux/iperf3_dellRasp_2-edit.png" />
+    </a><figcaption class="image-caption">Resultado do teste com a ferramenta iperf3: notebook (gaveta aberta) <–> Raspberry </figcaption>
+    </figure></p>
+<p>Ao contrário da expectativa de que o sinal melhoraria com o notebook para fora da parte de baixo da mesa, as medições e os testes até pioraram um pouco. Os dados transferidos caíram de 22 para <strong>14,8MBytes</strong> e a Banda de 3,11 para <strong>2,08Mbits/sec</strong>.</p>
+<h1 id="medições-e-testes-entre-notebook-e-adaptador-alfa-wi-fi-usb-awus036nh">Medições e testes entre notebook e Adaptador Alfa Wi-Fi USB AWUS036NH</h1>
+<p>Repetição dos mesmos testes realizados anteriormente.</p>
+<h2 id="teste-com-a-gaveta-fechada-1">Teste com a gaveta fechada</h2>
+<p>Médias dos parâmetros de medição <strong>Quality e Signal level</strong> do comando iwlist wlp2s0 scanning:</p>
+<ul>
+<li><strong>Quality 45/70</strong></li>
+<li><strong>Signal level = -65dBm</strong></li>
+</ul>
+<p>Resultado do teste com ferramenta iPerf3:</p>
+<p><figure><a class="lightgallery" href="/instalacao-experimento-adaptador-alfa-linux/iperf3_noteDell-Alfa_gavetaFechada-edit.png" title="Alt text" data-thumbnail="/instalacao-experimento-adaptador-alfa-linux/iperf3_noteDell-Alfa_gavetaFechada-edit.png" data-sub-html="<h2>Resultado do teste com a ferramenta iperf3: notebook (gaveta fechada) &lt;–&gt; Adaptador Alfa</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="iperf3_noteDell-Alfa_gavetaFechada-edit.png"
+            data-srcset="/instalacao-experimento-adaptador-alfa-linux/iperf3_noteDell-Alfa_gavetaFechada-edit.png, iperf3_noteDell-Alfa_gavetaFechada-edit.png 1.5x, /instalacao-experimento-adaptador-alfa-linux/iperf3_noteDell-Alfa_gavetaFechada-edit.png 2x"
+            data-sizes="auto"
+            alt="/instalacao-experimento-adaptador-alfa-linux/iperf3_noteDell-Alfa_gavetaFechada-edit.png" />
+    </a><figcaption class="image-caption">Resultado do teste com a ferramenta iperf3: notebook (gaveta fechada) <–> Adaptador Alfa</figcaption>
+    </figure></p>
+<p>Como foi possível notar na imagem anterior, a diferença dos resultados é espantosa. De 22MBytes transferidos e uma banda de 3Mbits/sec, pulamos para <strong>138MBytes</strong> transferidos e <strong>19,3Mbits/sec</strong>. Com o adaptador Alfa obtivemos <strong>6 vezes mais velocidade</strong> e consequentemente dados transferidos, nesse primeiro teste.</p>
+<p>Teste com a gaveta aberta</p>
+<p>Médias dos parâmetros de medição Quality e Signal level do comando <code>iwlist wlp2s0 scanning</code>:</p>
+<ul>
+<li><strong>Quality 48/70</strong></li>
+<li><strong>Signal level = -62dBm</strong></li>
+</ul>
+<p>Resultado do teste com ferramenta iPerf3:</p>
+<p><figure><a class="lightgallery" href="/instalacao-experimento-adaptador-alfa-linux/image.png" title="Alt text" data-thumbnail="/instalacao-experimento-adaptador-alfa-linux/image.png" data-sub-html="<h2>Resultado do teste com a ferramenta iperf3: notebook (gaveta aberta) &lt;–&gt; Adaptador Alfa</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="image.png"
+            data-srcset="/instalacao-experimento-adaptador-alfa-linux/image.png, image.png 1.5x, /instalacao-experimento-adaptador-alfa-linux/image.png 2x"
+            data-sizes="auto"
+            alt="/instalacao-experimento-adaptador-alfa-linux/image.png" />
+    </a><figcaption class="image-caption">Resultado do teste com a ferramenta iperf3: notebook (gaveta aberta) <–> Adaptador Alfa</figcaption>
+    </figure></p>
+<p>Neste último teste tive a expectativa atendida, que foi a de que quando o notebook está mais exposto há uma melhora no sinal e consequentemente na banda de rede entre ele e o Raspberry com adaptador Alfa. Neste resultado melhoramos ainda um pouco mais: de 138MBytes transferidos e 19,3 Mbits/sec para <strong>153MBytes</strong> de dados transferidos e banda de <strong>21,4Mbits/sec</strong>. Esse resultado em relação ao mesmo teste quando o adaptador Wi-Fi era o interno do Raspberry, dá uma melhora de aproximadamente <strong>10 vezes mais velocidade</strong>.</p>
+<h1 id="bônus-adaptador-wi-fi-usb-alfa-awus036nh-em-modo-ap">Bônus: adaptador Wi-Fi USB Alfa AWUS036NH em modo AP</h1>
+<p>Aqui, não é necessário nenhum trabalho, pois no blog já existe o “como fazer isso” pronto! Basta usar as mesmas configurações (iguaizinhas, até de driver) utilizadas no link a seguir: <a href="http://192.168.15.16/raspberry-como-roteador-wi-fi-parte-3-do-projeto/#3_Instalacao_e_configuracao_do_servico_hostapd_para_fazer_do_Raspberry_um_ponto_de_acesso_Wi-Fi">http://192.168.15.16/raspberry-como-roteador-wi-fi-parte-3-do-projeto/#3_Instalacao_e_configuracao_do_servico_hostapd_para_fazer_do_Raspberry_um_ponto_de_acesso_Wi-Fi</a></p>
+<h1 id="conclusão">Conclusão</h1>
+<p>Acredito que os resultados dos testes tenham indicado as seguintes conclusões: <strong>1)</strong> envolver o Raspberry em um case + cooler diminui sua capacidade de alcance Wi-Fi. Além disso, o sinal aparenta oscilar mais (instabilidade). <strong>2)</strong> Um adaptador Wi-Fi USB de qualidade, de preferência com antena externa, pode melhorar drasticamente a qualidade do sinal e consequentemente o fluxo da rede local.</p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/instalacao-experimento-adaptador-alfa-linux/index.md" target="_blank"></a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" WhatsApp" data-sharer="whatsapp" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title=" Trello" data-sharer="trello" data-url="http://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" data-title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/" class="prev" rel="prev" title="Rodando o sistema do Raspberry Pi 3 em um HD Externo – Parte 4 do Projeto"><i class="fas fa-angle-left fa-fw"></i>Rodando o sistema do Raspberry Pi 3 em um HD Externo – Parte 4 do Projeto</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://coisasdeinfra.com/about" target="_blank">Matheus Dias Queiroz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":1000},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,32 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>projeto - tag - Coisas de Infra</title>
+        <link>http://coisasdeinfra.com/tags/projeto/</link>
+        <description>projeto - tag - Coisas de Infra</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 13 Dec 2018 12:00:00 &#43;0000</lastBuildDate><atom:link href="http://coisasdeinfra.com/tags/projeto/" rel="self" type="application/rss+xml" /><item>
+    <title>Rodando o sistema do Raspberry Pi 3 em um HD Externo – Parte 4 do Projeto</title>
+    <link>http://coisasdeinfra.com/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/</link>
+    <pubDate>Thu, 13 Dec 2018 12:00:00 &#43;0000</pubDate>
+    <author></author>
+    <guid>http://coisasdeinfra.com/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/</guid>
+    <description><![CDATA[Contextualização
+Eis aqui uma parte opcional para o projeto, pois é possível manter o sistema rodando no cartão de memória como fizemos até agora.
+Porém, como eu já citei no artigo de Instalação (link), o cartão de memória tem um ciclo limitado de quantidade de leituras e escritas, podendo deixar de funcionar caso o limite for atingido. Procure pesquisar melhor este assunto. Esse link https://pt.stackoverflow.com/questions/8990/qual-é-a-vida-útil-de-um-cartão-sd-com-raspbian-raspberry-pi pode ser um bom começo.]]></description>
+</item><item>
+    <title>Raspberry como roteador Wi-Fi – Parte 3 do Projeto</title>
+    <link>http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/</link>
+    <pubDate>Thu, 06 Dec 2018 11:00:00 &#43;0000</pubDate>
+    <author></author>
+    <guid>http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/</guid>
+    <description><![CDATA[<p>Inicialmente, meu objetivo final quando comecei este projeto era esta parte: a parte em que vamos implementar os serviços de ponto de acesso Wi-Fi e de servidor DHCP. Com esses dois serviços configurados e mais algumas configurações de rede e firewall, o Raspberry se torna capaz de substituir muito roteador residencial com propriedade. Reflita: terás um sistema Linux estável e totalmente configurável, com hardware superdimensionado quando comparado a de roteadores residenciais, gerenciando sua rede Wi-Fi e seu acesso a Internet. Acredito que, “robusto” é uma possível palavra de reação para o que acabamos de ler.</p>
+<p>Além disso, haverá a possibilidade de estender as funções do Raspberry. “Preciso de VPN = instale o serviço”. “Meu videogame está com problema para acessar o servidor do jogo = nada que uma regrinha no iptables não resolva”. “Será útil compartilhar arquivos entre os computadores da minha residência = só configurar”. “Quero implementar um site (meu caso) = vá em frente”. As possibilidades são infinitas, ainda sem entrar no mérito das possíveis automações elétricas e eletrônicas que o Raspberry é capaz de fazer graças aos seus pinos programáveis.</p>
+<p>Enfim, esta parte do projeto, depois de pronta, serviu de inspiração para eu continuar tendo ideias, realizar experimentos e, resumidamente, chegar ao nível de desenvolver um site. Espero que, depois de implementada, esta parte também sirva de inspiração para você continuar experimentando e aprendendo com o seu Rasp.</p>]]></description>
+</item><item>
+    <title>Projeto Infra com Raspberry PI 3 Model B / Origem do Site</title>
+    <link>http://coisasdeinfra.com/projeto-infra-com-raspberry-pi-3/</link>
+    <pubDate>Mon, 08 Oct 2018 08:00:00 &#43;0000</pubDate>
+    <author></author>
+    <guid>http://coisasdeinfra.com/projeto-infra-com-raspberry-pi-3/</guid>
+    <description><![CDATA[<p>Esse é o projeto que deu vida ao site Coisas de Infra. A seguir nesta página, contextualizo o projeto, conto como surgiu a ideia desse site e quais os objetivos com tudo isso. Além disso, também escrevo sobre as motivações.</p>]]></description>
+</item></channel>
+</rss>
