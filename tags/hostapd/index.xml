@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>hostapd - tag - Coisas de Infra</title>
-        <link>http://coisasdeinfra.com/tags/hostapd/</link>
+        <link>https://coisasdeinfra.com/tags/hostapd/</link>
         <description>hostapd - tag - Coisas de Infra</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 06 Dec 2018 11:00:00 &#43;0000</lastBuildDate><atom:link href="http://coisasdeinfra.com/tags/hostapd/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 06 Dec 2018 11:00:00 &#43;0000</lastBuildDate><atom:link href="https://coisasdeinfra.com/tags/hostapd/" rel="self" type="application/rss+xml" /><item>
     <title>Raspberry como roteador Wi-Fi – Parte 3 do Projeto</title>
-    <link>http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/</link>
+    <link>https://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/</link>
     <pubDate>Thu, 06 Dec 2018 11:00:00 &#43;0000</pubDate>
     <author></author>
-    <guid>http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/</guid>
+    <guid>https://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/</guid>
     <description><![CDATA[<p>Inicialmente, meu objetivo final quando comecei este projeto era esta parte: a parte em que vamos implementar os serviços de ponto de acesso Wi-Fi e de servidor DHCP. Com esses dois serviços configurados e mais algumas configurações de rede e firewall, o Raspberry se torna capaz de substituir muito roteador residencial com propriedade. Reflita: terás um sistema Linux estável e totalmente configurável, com hardware superdimensionado quando comparado a de roteadores residenciais, gerenciando sua rede Wi-Fi e seu acesso a Internet. Acredito que, “robusto” é uma possível palavra de reação para o que acabamos de ler.</p>
 <p>Além disso, haverá a possibilidade de estender as funções do Raspberry. “Preciso de VPN = instale o serviço”. “Meu videogame está com problema para acessar o servidor do jogo = nada que uma regrinha no iptables não resolva”. “Será útil compartilhar arquivos entre os computadores da minha residência = só configurar”. “Quero implementar um site (meu caso) = vá em frente”. As possibilidades são infinitas, ainda sem entrar no mérito das possíveis automações elétricas e eletrônicas que o Raspberry é capaz de fazer graças aos seus pinos programáveis.</p>
 <p>Enfim, esta parte do projeto, depois de pronta, serviu de inspiração para eu continuar tendo ideias, realizar experimentos e, resumidamente, chegar ao nível de desenvolver um site. Espero que, depois de implementada, esta parte também sirva de inspiração para você continuar experimentando e aprendendo com o seu Rasp.</p>]]></description>

@@ -8,7 +8,7 @@
         <title>Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto - Coisas de Infra</title><meta name="Description" content="Compartilhando Conhecimento"><meta property="og:title" content="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" />
 <meta property="og:description" content="Após fazer a instalação do sistema operacional Raspbian Lite no Raspberry Pi 3 no artigo anterior, precisamos agora realizar algumas configurações básicas, para que o sistema fique bem configurado e estável para o uso. Além disso, já vamos realizar algum gerenciamento de usuários, configurar o básico de rede, deixar o sistema acessível via SSH e atualizar o sistema. Mãos ao teclado!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" />
+<meta property="og:url" content="https://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" />
 <meta property="article:published_time" content="2018-11-30T10:00:00+00:00" />
 <meta property="article:modified_time" content="2018-11-30T10:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
@@ -17,7 +17,7 @@
 <meta name="application-name" content="Coisas De Infra">
 <meta name="apple-mobile-web-app-title" content="Coisas De Infra"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" /><link rel="prev" href="http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/" /><link rel="next" href="http://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" /><link rel="prev" href="https://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/" /><link rel="next" href="https://coisasdeinfra.com/raspberry-como-roteador-wi-fi-parte-3-do-projeto/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -25,9 +25,9 @@
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/coisasdeinfra.com\/primeiras-configuracoes-no-raspbian-lite\/"
+            "@id": "https:\/\/coisasdeinfra.com\/primeiras-configuracoes-no-raspbian-lite\/"
         },"genre": "posts","keywords": "Raspberry Pi, Raspbian, Linux, Infraestrutura, ssh, aptitude","wordcount":  2354 ,
-        "url": "http:\/\/coisasdeinfra.com\/primeiras-configuracoes-no-raspbian-lite\/","datePublished": "2018-11-30T10:00:00+00:00","dateModified": "2018-11-30T10:00:00+00:00","publisher": {
+        "url": "https:\/\/coisasdeinfra.com\/primeiras-configuracoes-no-raspbian-lite\/","datePublished": "2018-11-30T10:00:00+00:00","dateModified": "2018-11-30T10:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "Matheus Dias Queiroz"},"author": {
                 "@type": "Person",
@@ -40,14 +40,7 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="Coisas de Infra"><img
-        class="lazyload logo"
-        src="/svg/loading.min.svg"
-        data-src="Coisas%20de%20Infra"
-        data-srcset="Coisas%20de%20Infra, Coisas%20de%20Infra 1.5x, Coisas%20de%20Infra 2x"
-        data-sizes="auto"
-        alt="Coisas de Infra"
-        title="Coisas de Infra" /></a>
+            <a href="/" title="Coisas de Infra">Coisas de Infra</a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
@@ -71,14 +64,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="Coisas de Infra"><img
-        class="lazyload logo"
-        src="/svg/loading.min.svg"
-        data-src="Coisas%20de%20Infra"
-        data-srcset="Coisas%20de%20Infra, Coisas%20de%20Infra 1.5x, Coisas%20de%20Infra 2x"
-        data-sizes="auto"
-        alt="Coisas de Infra"
-        title="Coisas de Infra" /></a>
+                <a href="/" title="Coisas de Infra">Coisas de Infra</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -431,7 +417,7 @@ aptitude full-upgrade
                             <a class="link-to-markdown" href="/primeiras-configuracoes-no-raspbian-lite/index.md" target="_blank"></a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-hashtags="Raspberry Pi,Raspbian,Linux,Infraestrutura,ssh,aptitude"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-hashtag="Raspberry Pi"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" WhatsApp" data-sharer="whatsapp" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title=" Trello" data-sharer="trello" data-url="http://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="https://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-hashtags="Raspberry Pi,Raspbian,Linux,Infraestrutura,ssh,aptitude"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="https://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-hashtag="Raspberry Pi"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="https://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" WhatsApp" data-sharer="whatsapp" data-url="https://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="https://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="https://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title=" Trello" data-sharer="trello" data-url="https://coisasdeinfra.com/primeiras-configuracoes-no-raspbian-lite/" data-title="Primeiras Configurações no Raspbian Lite – Parte 2 do Projeto" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
             </div>
         </div>
     </div>

@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>unzip - tag - Coisas de Infra</title>
-        <link>http://coisasdeinfra.com/tags/unzip/</link>
+        <link>https://coisasdeinfra.com/tags/unzip/</link>
         <description>unzip - tag - Coisas de Infra</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 09 Oct 2018 09:00:00 &#43;0000</lastBuildDate><atom:link href="http://coisasdeinfra.com/tags/unzip/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 09 Oct 2018 09:00:00 &#43;0000</lastBuildDate><atom:link href="https://coisasdeinfra.com/tags/unzip/" rel="self" type="application/rss+xml" /><item>
     <title>Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto</title>
-    <link>http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/</link>
+    <link>https://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/</link>
     <pubDate>Tue, 09 Oct 2018 09:00:00 &#43;0000</pubDate>
     <author></author>
-    <guid>http://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/</guid>
+    <guid>https://coisasdeinfra.com/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/</guid>
     <description><![CDATA[Instalação do Raspbian Lite em um cartão SD.]]></description>
 </item></channel>
 </rss>

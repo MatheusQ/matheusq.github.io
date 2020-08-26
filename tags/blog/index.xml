@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>blog - tag - Coisas de Infra</title>
-        <link>http://coisasdeinfra.com/tags/blog/</link>
+        <link>https://coisasdeinfra.com/tags/blog/</link>
         <description>blog - tag - Coisas de Infra</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 08 Oct 2018 08:00:00 &#43;0000</lastBuildDate><atom:link href="http://coisasdeinfra.com/tags/blog/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 08 Oct 2018 08:00:00 &#43;0000</lastBuildDate><atom:link href="https://coisasdeinfra.com/tags/blog/" rel="self" type="application/rss+xml" /><item>
     <title>Projeto Infra com Raspberry PI 3 Model B / Origem do Site</title>
-    <link>http://coisasdeinfra.com/projeto-infra-com-raspberry-pi-3/</link>
+    <link>https://coisasdeinfra.com/projeto-infra-com-raspberry-pi-3/</link>
     <pubDate>Mon, 08 Oct 2018 08:00:00 &#43;0000</pubDate>
     <author></author>
-    <guid>http://coisasdeinfra.com/projeto-infra-com-raspberry-pi-3/</guid>
+    <guid>https://coisasdeinfra.com/projeto-infra-com-raspberry-pi-3/</guid>
     <description><![CDATA[<p>Esse é o projeto que deu vida ao site Coisas de Infra. A seguir nesta página, contextualizo o projeto, conto como surgiu a ideia desse site e quais os objetivos com tudo isso. Além disso, também escrevo sobre as motivações.</p>]]></description>
 </item></channel>
 </rss>
