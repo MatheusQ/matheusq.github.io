@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>git - tag - Coisas de Infra</title>
+        <link>https://coisasdeinfra.com/tags/git/</link>
+        <description>git - tag - Coisas de Infra</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 26 Aug 2020 20:45:42 -0300</lastBuildDate><atom:link href="https://coisasdeinfra.com/tags/git/" rel="self" type="application/rss+xml" /><item>
+    <title>Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo</title>
+    <link>https://coisasdeinfra.com/sai-wordpress-entra-hugo/</link>
+    <pubDate>Wed, 26 Aug 2020 20:45:42 -0300</pubDate>
+    <author></author>
+    <guid>https://coisasdeinfra.com/sai-wordpress-entra-hugo/</guid>
+    <description><![CDATA[Resumo Em 2018, subi um blog em um servidor próprio usando wordpress. Depois, me mudei de cidade devido a um novo emprego e a gerência do servidor que ficava na casa dos meus pais se tornou mais difícil, além do tempo mais escasso. Pausei o projeto em 2019.
+Em Julho de 2020 resolvi retomar o blog. Analisei que wordpress exigiria encontrar algum serviço de hospedagem, envolveria custos e etc. Isso me incentivou buscar outras soluções e tecnologia, então me deparei com o github pages.]]></description>
+</item></channel>
+</rss>

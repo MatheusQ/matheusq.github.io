@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo - Coisas de Infra</title><meta name="Description" content="Compartilhando Conhecimento"><meta property="og:title" content="Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo" />
+<meta property="og:description" content="Resumo Em 2018, subi um blog em um servidor próprio usando wordpress. Depois, me mudei de cidade devido a um novo emprego e a gerência do servidor que ficava na casa dos meus pais se tornou mais difícil, além do tempo mais escasso. Pausei o projeto em 2019.
+Em Julho de 2020 resolvi retomar o blog. Analisei que wordpress exigiria encontrar algum serviço de hospedagem, envolveria custos e etc. Isso me incentivou buscar outras soluções e tecnologia, então me deparei com o github pages." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://coisasdeinfra.com/sai-wordpress-entra-hugo/" />
+<meta property="article:published_time" content="2020-08-26T20:45:42-03:00" />
+<meta property="article:modified_time" content="2020-08-26T20:45:42-03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo"/>
+<meta name="twitter:description" content="Resumo Em 2018, subi um blog em um servidor próprio usando wordpress. Depois, me mudei de cidade devido a um novo emprego e a gerência do servidor que ficava na casa dos meus pais se tornou mais difícil, além do tempo mais escasso. Pausei o projeto em 2019.
+Em Julho de 2020 resolvi retomar o blog. Analisei que wordpress exigiria encontrar algum serviço de hospedagem, envolveria custos e etc. Isso me incentivou buscar outras soluções e tecnologia, então me deparei com o github pages."/>
+<meta name="application-name" content="Coisas De Infra">
+<meta name="apple-mobile-web-app-title" content="Coisas De Infra"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://coisasdeinfra.com/sai-wordpress-entra-hugo/" /><link rel="prev" href="https://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/coisasdeinfra.com\/sai-wordpress-entra-hugo\/"
+        },"genre": "posts","keywords": "blog, hugo, gohugo, open source, git, githubpages, linux, infraestrutura, segurança","wordcount":  1240 ,
+        "url": "https:\/\/coisasdeinfra.com\/sai-wordpress-entra-hugo\/","datePublished": "2020-08-26T20:45:42-03:00","dateModified": "2020-08-26T20:45:42-03:00","publisher": {
+            "@type": "Organization",
+            "name": "Matheus Dias Queiroz"},"author": {
+                "@type": "Person",
+                "name": "Matheus Dias Queiroz"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Coisas de Infra">Coisas de Infra</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Coisas de Infra">Coisas de Infra</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title"></h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://coisasdeinfra.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Matheus Dias Queiroz</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="26-08-2020">26-08-2020</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span></span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#resumo">Resumo</a></li>
+    <li><a href="#não-resumido-historinha-porquês-e-etc">Não resumido, historinha, porquês e etc</a>
+      <ul>
+        <li><a href="#vamos-começar-por-o-que-é-hugo">Vamos começar por &ldquo;o que é Hugo?&rdquo;.</a></li>
+        <li><a href="#seguindo-com-github-pages">Seguindo com GitHub Pages</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="resumo">Resumo</h1>
+<p>Em 2018, subi um blog em um servidor próprio usando wordpress. Depois, me mudei de cidade devido a um novo emprego e a gerência do servidor que ficava na casa dos meus pais se tornou mais difícil, além do tempo mais escasso. Pausei o projeto em 2019.</p>
+<p>Em Julho de 2020 resolvi retomar o blog. Analisei que wordpress exigiria encontrar algum serviço de hospedagem, envolveria custos e etc. Isso me incentivou buscar outras soluções e tecnologia, então me deparei com o <a href="https://pages.github.com/" target="_blank" rel="noopener noreffer">github pages</a>.</p>
+<p>Com o github pages você consegue hospedar gratuitamente um site do tipo estático, usar um domínio próprio e com certificado válido (by <a href="https://letsencrypt.org" target="_blank" rel="noopener noreffer">Let&rsquo;s Encrypt</a>) para HTTPS.</p>
+<p>Para me auxiliar a produzir um site estático legal eu encontrei o <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer">Hugo</a> que &ldquo;é um dos mais populares geradores de site estáticos de código aberto (open-souce)&rdquo;.</p>
+<p>Com o conjunto GitHub Pages e Hugo, retomei meu blog!</p>
+<h1 id="não-resumido-historinha-porquês-e-etc">Não resumido, historinha, porquês e etc</h1>
+<p>Durante a faculdade, além do curso em si, duas coisas foram bem marcantes:</p>
+<p><strong>1. Ter trabalhado em uma iniciação científica, a qual o projeto de pesquisa foi de minha autoria</strong></p>
+<p><strong>2. Ter feito estágio com pessoas fantásticas na área de infraestrutura, área tema da minha iniciação científica e também linha de carreira que eu queria seguir (e segui).</strong></p>
+<p>Quando eu terminei a faculdade, a falta de contato com o estágio e o término do projeto de iniciação científica, além do desemprego, me motivaram a criar um blog.</p>
+<p>Produzir conteúdo e compartilhar conhecimento sobre a área que eu gosto são coisas que me inspiram e que me dão prazer.</p>
+<p>Então, na metade de 2018 inventei de subir um blog usando um rapsberry. Foi uma experiência fantástica. Houveram muitos aprendizados. Vale citar alguns vários:</p>
+<blockquote>
+<ul>
+<li>Descobri que as provedoras de internet bloqueiam tráfego entrante para clientes residencias nas portas &ldquo;baixas&rdquo;, como exemplo, 80 e 443;</li>
+<li>briguei com uma provedora de internet para fugir do CGNAT (ter um IPv4 público direto em meu modem, mesmo que dinâmico), a ter direito a tráfego entrante nas portas baixas, direito ao IPv6;</li>
+<li>configurei minha rede em pilha dupla, IPv4 e IPv6, e meu blog era acessível em ambos os protocolos</li>
+<li>aprendi a configurar o web server Apache;</li>
+<li>aprimorei meus conhecimentos no firewall iptables;</li>
+<li>aprendi a configurar o fail2ban para proteger minha conexão SSH;</li>
+<li>fiz um monitoramento básico do sistema com Logwatch;</li>
+<li>configurei o hostapd para o raspberry ser o roteador wi-fi da rede;</li>
+<li>configurei um DHCP server;</li>
+<li>fiz <em>hardening</em> do Apache e de outras configurações do Linux para aprimorar a segurança;</li>
+<li>desenvolvi scripts em Shell Script para automatizar atualizações, backups entre outras tarefas;</li>
+<li>aprendi a usar o cron;</li>
+<li>aprendi muito sobre boot, particionamento, lvm, MBR e GPT;</li>
+<li>até eletrônica: confira <a href="https://coisasdeinfra.com/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/">https://coisasdeinfra.com/rodando-o-sistema-do-raspberry-pi-3-em-um-hd-externo/</a></li>
+<li>a instalar o wordpress e todo o necessário para botar o blog no ar</li>
+<li>etc</li>
+</ul>
+</blockquote>
+<p>Esse projeto com raspberry é o tipo de coisa que vou carregar comigo sempre, que vez ou outra eu vou contar, vou lembrar. Para mim esse projeto será uma lembrança tão importante quanto como deve ser para Bezos lembrar dos seus primórdios em uma garagem, rsrs. O ponto é: ali algo deu origem a um futuro próspero (independente da proporção).</p>
+<p>Não posso deixar de citar e agradecer meu amigo Bruno Costa, cara que conheci quando tinha uns 8 anos, e que em 2018 (15 anos depois) me emprestou, ingenuamente, sua placa raspberry, a qual tomei conta e não devolvi por 2 anos hahaha. Valeu, mano! Você fez parte disso.</p>
+<p>Então, depois de alguns meses de ter aprendido muita coisa e ter colocado o blog no ar, eu, que estava buscando emprego, consegui um e me mudei de cidade (e da casa dos meus pais). Fui trabalhar com infraestrutura. Objetivo de início de carreira cumprido. Com um mundo de novas coisas, novas rotinas, responsabilidades e um tempo mais escasso, a gerência do raspberry remotamente ficou mais difícil. Eu tinha um problema com a fonte de energia do raspberry, e vez ou outra, era necessário tirar da tomada e colocar de novo hahaha.</p>
+<p>Com isso, eu não concluí todas as partes do projeto do raspberry <a href="https://coisasdeinfra.com/projeto-infra-com-raspberry-pi-3/">https://coisasdeinfra.com/projeto-infra-com-raspberry-pi-3/</a> que eu queria escrever e postar no blog. Faltaram partes onde eu escrever em como eu configurei o apache, o iptables, o fail2ban, o ssh, logwatch, o update, como instalei o wordpress, os <em>hardenings</em> que fiz, etc.</p>
+<p>Mas deu tempo de postar muita coisa legal sobre o projeto também. Apesar do relançamento do blog, todo o conteúdo postado em 2018 e 1 post de 2019 foi conservado e pode ser acessado nesta publicação atual.</p>
+<p>Eu não subi mais o blog no raspberry porque para conseguir ter um servidor web usando internet residencial foi uma luta. Briguei com a provedora de internet contratada na casa dos meus pais para conseguir tráfego entrante nas portas baixas e deu bastante trabalho. Não quis repetir a historia em minha nova moradia em outra cidade. Por isso, abandonei de ter o rapsberry como servidor do blog de qualquer lugar.</p>
+<p>Então, para subir o antigo wordpress que eu havia configurado, eu precisaria pagar por um serviço de hospedagem. Sinceramente, achei muita coisa ter que pagar por um serviço de hospedagem e manter um wordpress (algo meio pesado, convenhamos, ao menos para um blog de portfólio) no ar. Então comecei a buscar outras soluções e deparei com o Hugo e depois com o GitHub Pages.</p>
+<h2 id="vamos-começar-por-o-que-é-hugo">Vamos começar por &ldquo;o que é Hugo?&rdquo;.</h2>
+<p>Ninguém melhor que o própria documentação do Hugo para explicar o que ele é, então lá vai a citação, com a minha tradução (perdoem erros) do site <a href="https://gohugo.io/about/what-is-hugo/">https://gohugo.io/about/what-is-hugo/</a></p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw"></i>O que é Hugo<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Hugo é um gerador de sites estático rápido e moderno escrito em Go e projetado para tornar a criação de sites divertida novamente.</p>
+<p>Hugo é um <em>framework</em> de site de uso geral. Tecnicamente falando, Hugo é um gerador de sites estáticos. Ao contrário dos sistemas que constroem uma página dinamicamente com cada solicitação do visitante, Hugo constrói páginas quando você cria ou atualiza seu conteúdo. Uma vez que os sites são vistos com muito mais frequência do que editados, o Hugo foi projetado para fornecer uma experiência de visualização ideal para os usuários finais do seu site e uma experiência de escrita ideal para os autores do site.</p>
+<p>Os sites construídos com Hugo são extremamente rápidos e seguros. Os sites da Hugo podem ser hospedados em qualquer lugar, incluindo Netlify, Heroku, GoDaddy, DreamHost, GitHub Pages, GitLab Pages, Surge, Aerobatic, Firebase, Google Cloud Storage, Amazon S3, Rackspace, Azure e CloudFront e funcionam bem com CDNs. Os sites Hugo são executados sem a necessidade de um banco de dados ou dependências em tempos de execução caros, como Ruby, Python ou PHP.</p>
+</div>
+        </div>
+    </div>
+<p>Para experimentar o Hugo, de maneira simples e rápida, eu segui o tutorial da página <a href="https://gohugo.io/getting-started/quick-start/">https://gohugo.io/getting-started/quick-start/</a>.</p>
+<p>Depois, experimentei <a href="https://themes.gohugo.io/" target="_blank" rel="noopener noreffer">temas</a>, coloquei mais conteúdos e fui moldando como queria colocar meus conteúdos no Hugo.</p>
+<h2 id="seguindo-com-github-pages">Seguindo com GitHub Pages</h2>
+<p>Criei um repositório no GitHub para armazenar e versionar meus experimentos com Hugo.</p>
+<p>Então, estudei o <a href="https://pages.github.com/" target="_blank" rel="noopener noreffer">GitHub Pages</a>, pois precisava de um lugar/servidor para publicar meu site estático. E o GitHub Pages faz exatamente isso.
+Basta você criar um repositório com configurações específicas na sua conta que o Git vai interpretar o conteúdo colocado nesse repositório como um site estático. Ou seja, se for colocado arquivos HTML, CSS e companhia, devidamente estruturados, o Git vai interpretar e publicar como site para você. Depois, indo além nas configurações, é possível configurar um nome de domínio customizado (que seja seu, claro) e ativar HTTPS.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/sai-wordpress-entra-hugo/index.md" target="_blank"></a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="https://coisasdeinfra.com/sai-wordpress-entra-hugo/" data-title="Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo" data-hashtags="blog,hugo,gohugo,open source,git,githubpages,linux,infraestrutura,segurança"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="https://coisasdeinfra.com/sai-wordpress-entra-hugo/" data-hashtag="blog"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="https://coisasdeinfra.com/sai-wordpress-entra-hugo/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" WhatsApp" data-sharer="whatsapp" data-url="https://coisasdeinfra.com/sai-wordpress-entra-hugo/" data-title="Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="https://coisasdeinfra.com/sai-wordpress-entra-hugo/" data-title="Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="https://coisasdeinfra.com/sai-wordpress-entra-hugo/" data-title="Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title=" Trello" data-sharer="trello" data-url="https://coisasdeinfra.com/sai-wordpress-entra-hugo/" data-title="Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/blog/">blog</a>,&nbsp;<a href="/tags/hugo/">hugo</a>,&nbsp;<a href="/tags/gohugo/">gohugo</a>,&nbsp;<a href="/tags/open-source/">open source</a>,&nbsp;<a href="/tags/git/">git</a>,&nbsp;<a href="/tags/githubpages/">githubpages</a>,&nbsp;<a href="/tags/linux/">linux</a>,&nbsp;<a href="/tags/infraestrutura/">infraestrutura</a>,&nbsp;<a href="/tags/seguran%C3%A7a/">segurança</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/instalacao-experimento-adaptador-alfa-linux/" class="prev" rel="prev" title="Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho"><i class="fas fa-angle-left fa-fw"></i>Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://coisasdeinfra.com/about" target="_blank">Matheus Dias Queiroz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://coisasdeinfra-com.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":1000},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-130026256-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-130026256-1" async></script></body>
+</html>
