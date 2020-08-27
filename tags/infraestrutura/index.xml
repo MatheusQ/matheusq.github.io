@@ -3,15 +3,7 @@
         <title>infraestrutura - tag - Coisas de Infra</title>
         <link>https://coisasdeinfra.com/tags/infraestrutura/</link>
         <description>infraestrutura - tag - Coisas de Infra</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 26 Aug 2020 20:45:42 -0300</lastBuildDate><atom:link href="https://coisasdeinfra.com/tags/infraestrutura/" rel="self" type="application/rss+xml" /><item>
-    <title>Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo</title>
-    <link>https://coisasdeinfra.com/sai-wordpress-entra-hugo/</link>
-    <pubDate>Wed, 26 Aug 2020 20:45:42 -0300</pubDate>
-    <author></author>
-    <guid>https://coisasdeinfra.com/sai-wordpress-entra-hugo/</guid>
-    <description><![CDATA[Resumo Em 2018, subi um blog em um servidor próprio usando wordpress. Depois, me mudei de cidade devido a um novo emprego e a gerência do servidor que ficava na casa dos meus pais se tornou mais difícil, além do tempo mais escasso. Pausei o projeto em 2019.
-Em Julho de 2020 resolvi retomar o blog. Analisei que wordpress exigiria encontrar algum serviço de hospedagem, envolveria custos e etc. Isso me incentivou buscar outras soluções e tecnologia, então me deparei com o github pages.]]></description>
-</item><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 18 Jan 2019 10:00:00 &#43;0000</lastBuildDate><atom:link href="https://coisasdeinfra.com/tags/infraestrutura/" rel="self" type="application/rss+xml" /><item>
     <title>Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho</title>
     <link>https://coisasdeinfra.com/instalacao-experimento-adaptador-alfa-linux/</link>
     <pubDate>Fri, 18 Jan 2019 10:00:00 &#43;0000</pubDate>
