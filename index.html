@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.74.3" />
+	<meta name="generator" content="Hugo 0.79.0" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -10,7 +10,7 @@
 <meta property="og:description" content="Compartilhando Conhecimento" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://coisasdeinfra.com/" />
-<meta property="og:updated_time" content="2019-01-18T10:00:00+00:00" />
+<meta property="og:updated_time" content="2020-12-10T22:58:00-03:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Coisas de Infra"/>
 <meta name="twitter:description" content="Compartilhando Conhecimento"/>
@@ -100,6 +100,18 @@
         alt="/me.jpg"
         title="/me.jpg" /></a></div><h1 class="home-title">Coisas de Infra</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/MatheusQ" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://linkedin.com/in/matheus-dias-queiroz/" title="LinkedIn" target="_blank" rel="noopener noreffer me"><i class="fab fa-linkedin fa-fw"></i></a></div><h3 class="home-disclaimer"><a href="https://coisasdeinfra.com/about">Conheça o Matheus, fundador e mantenedor do blog</a> </h3></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/index.pt-br/">Como usar o sed e o find para substituir texto dentro de um arquivo no linux</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://coisasdeinfra.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Matheus Dias Queiroz</a></span>&nbsp;<span class="post-publish"></span></div><div class="content">Contextualização Com certeza há diversas soluções para o problema de substituir um texto/expressão de dentro de um arquivo no Linux. A solução usada para este caso foi o uso dos comandos sed e find.
+Eu tinha vários arquivos texto (.txt) dentro de um diretório no Linux e todos esses arquivos tinham a expressão draft:true dentro deles. Eu precisava mudar essa mesma expressão em todos os arquivos para draft:false. Uma das soluções possíveis: usar o comando sed.</div><div class="post-footer">
+        <a href="/index.pt-br/"></a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/linux/">linux</a>,&nbsp;<a href="/tags/sed/">sed</a>,&nbsp;<a href="/tags/find/">find</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/sai-wordpress-entra-hugo/">Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://coisasdeinfra.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Matheus Dias Queiroz</a></span>&nbsp;<span class="post-publish"></span></div><div class="content">Resumo Em 2018, subi um blog em um servidor próprio usando wordpress. Depois, me mudei de cidade devido a um novo emprego e a gerência do servidor que ficava na casa dos meus pais se tornou mais difícil, além do tempo mais escasso. Pausei o projeto em 2019.
+Em Julho de 2020 resolvi retomar o blog. Analisei que wordpress exigiria encontrar algum serviço de hospedagem, envolveria custos e etc. Isso me incentivou buscar outras soluções e tecnologia, então me deparei com o github pages.</div><div class="post-footer">
+        <a href="/sai-wordpress-entra-hugo/"></a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/blog/">blog</a>,&nbsp;<a href="/tags/hugo/">hugo</a>,&nbsp;<a href="/tags/gohugo/">gohugo</a>,&nbsp;<a href="/tags/open-source/">open source</a>,&nbsp;<a href="/tags/git/">git</a>,&nbsp;<a href="/tags/githubpages/">githubpages</a>,&nbsp;<a href="/tags/linux/">linux</a>,&nbsp;<a href="/tags/infraestrutura/">infraestrutura</a>,&nbsp;<a href="/tags/seguran%C3%A7a/">segurança</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/instalacao-experimento-adaptador-alfa-linux/">Instalação do Adaptador Wi-Fi USB Alfa AWUS036NH no Linux e Experimento de Desempenho</a>
     </h1><div class="post-meta"><span class="post-author"><a href="https://coisasdeinfra.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Matheus Dias Queiroz</a></span>&nbsp;<span class="post-publish"></span></div><div class="content"><p>Veja como instalar o adaptador Wi-Fi USB Alfa AWUS03NH no Linux, um experimento de comparação entre o Wi-Fi interno de um Raspberry Pi 3 B e o Alfa, usando a ferramenta <strong>iperf3</strong>; e também como utilizá-lo em modo AP (Access Point / ponto de acesso Wi-Fi).</p></div><div class="post-footer">
         <a href="/instalacao-experimento-adaptador-alfa-linux/"></a><div class="post-tags">
@@ -123,16 +135,6 @@ Porém, como eu já citei no artigo de Instalação (link), o cartão de memóri
     </h1><div class="post-meta"><span class="post-author"><a href="https://coisasdeinfra.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Matheus Dias Queiroz</a></span>&nbsp;<span class="post-publish"></span></div><div class="content"><p>Após fazer a instalação do sistema operacional Raspbian Lite no Raspberry Pi 3 no artigo anterior, precisamos agora realizar algumas configurações básicas, para que o sistema fique bem configurado e estável para o uso. Além disso, já vamos realizar algum gerenciamento de usuários, configurar o básico de rede, deixar o sistema acessível via SSH e atualizar o sistema. Mãos ao teclado!</p></div><div class="post-footer">
         <a href="/primeiras-configuracoes-no-raspbian-lite/"></a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/raspberry-pi/">Raspberry Pi</a>,&nbsp;<a href="/tags/raspbian/">raspbian</a>,&nbsp;<a href="/tags/linux/">linux</a>,&nbsp;<a href="/tags/infraestrutura/">infraestrutura</a>,&nbsp;<a href="/tags/ssh/">ssh</a>,&nbsp;<a href="/tags/aptitude/">aptitude</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/">Instalar O Raspbian Lite No Raspberry Pi 3 Model B - Parte 1 Do Projeto</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://coisasdeinfra.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Matheus Dias Queiroz</a></span>&nbsp;<span class="post-publish"></span></div><div class="content">Instalação do Raspbian Lite em um cartão SD.</div><div class="post-footer">
-        <a href="/instalar-o-raspbian-lite-no-raspberry-pi-3-model-b-parte-1-do-projeto/"></a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/raspberry-pi/">Raspberry Pi</a>,&nbsp;<a href="/tags/raspbian/">raspbian</a>,&nbsp;<a href="/tags/linux/">linux</a>,&nbsp;<a href="/tags/infraestrutura/">infraestrutura</a>,&nbsp;<a href="/tags/dd/">dd</a>,&nbsp;<a href="/tags/unzip/">unzip</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/projeto-infra-com-raspberry-pi-3/">Projeto Infra com Raspberry PI 3 Model B / Origem do Site</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://coisasdeinfra.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Matheus Dias Queiroz</a></span>&nbsp;<span class="post-publish"></span></div><div class="content"><p>Esse é o projeto que deu vida ao site Coisas de Infra. A seguir nesta página, contextualizo o projeto, conto como surgiu a ideia desse site e quais os objetivos com tudo isso. Além disso, também escrevo sobre as motivações.</p></div><div class="post-footer">
-        <a href="/projeto-infra-com-raspberry-pi-3/"></a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/blog/">blog</a>,&nbsp;<a href="/tags/free-software/">free software</a>,&nbsp;<a href="/tags/projeto/">projeto</a>,&nbsp;<a href="/tags/raspberry-pi/">Raspberry Pi</a>,&nbsp;<a href="/tags/raspbian/">raspbian</a>,&nbsp;<a href="/tags/linux/">linux</a>,&nbsp;<a href="/tags/infraestrutura/">infraestrutura</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>

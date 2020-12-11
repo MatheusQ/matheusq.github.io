@@ -8,7 +8,7 @@ Em Julho de 2020 resolvi retomar o blog. Analisei que wordpress exigiria encontr
 
 Com o github pages você consegue hospedar gratuitamente um site do tipo estático, usar um domínio próprio e com certificado válido (by [Let's Encrypt](https://letsencrypt.org)) para HTTPS.
 
-Para me auxiliar a produzir um site estático legal eu encontrei o [Hugo](https://gohugo.io/) que "é um dos mais populares geradores de site estáticos de código aberto (open-souce)".
+Para me auxiliar a produzir um site estático legal eu encontrei o [Hugo](https://gohugo.io/), que "é um dos mais populares geradores de site estáticos de código aberto (open-souce)".
 
 Com o conjunto GitHub Pages e Hugo, retomei meu blog!
 
