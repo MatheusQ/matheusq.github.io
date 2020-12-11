@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Como usar o sed e o find para substituir texto dentro de um arquivo no linux - Coisas de Infra</title><meta name="Description" content="Compartilhando Conhecimento"><meta property="og:title" content="Como usar o sed e o find para substituir texto dentro de um arquivo no linux" />
+<meta property="og:description" content="Contextualização Com certeza há diversas soluções para o problema de substituir um texto/expressão de dentro de um arquivo no Linux. A solução usada para este caso foi o uso dos comandos sed e find.
+Eu tinha vários arquivos texto (.txt) dentro de um diretório no Linux e todos esses arquivos tinham a expressão draft:true dentro deles. Eu precisava mudar essa mesma expressão em todos os arquivos para draft:false. Uma das soluções possíveis: usar o comando sed." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://coisasdeinfra.com/sed-para-substituir-conteudo-dentro-arquivo/" />
+<meta property="article:published_time" content="2020-12-10T22:58:00-03:00" />
+<meta property="article:modified_time" content="2020-12-10T22:58:00-03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Como usar o sed e o find para substituir texto dentro de um arquivo no linux"/>
+<meta name="twitter:description" content="Contextualização Com certeza há diversas soluções para o problema de substituir um texto/expressão de dentro de um arquivo no Linux. A solução usada para este caso foi o uso dos comandos sed e find.
+Eu tinha vários arquivos texto (.txt) dentro de um diretório no Linux e todos esses arquivos tinham a expressão draft:true dentro deles. Eu precisava mudar essa mesma expressão em todos os arquivos para draft:false. Uma das soluções possíveis: usar o comando sed."/>
+<meta name="application-name" content="Coisas De Infra">
+<meta name="apple-mobile-web-app-title" content="Coisas De Infra"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://coisasdeinfra.com/sed-para-substituir-conteudo-dentro-arquivo/" /><link rel="prev" href="https://coisasdeinfra.com/sai-wordpress-entra-hugo/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Como usar o sed e o find para substituir texto dentro de um arquivo no linux",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/coisasdeinfra.com\/sed-para-substituir-conteudo-dentro-arquivo\/"
+        },"genre": "posts","keywords": "linux, sed, find","wordcount":  472 ,
+        "url": "https:\/\/coisasdeinfra.com\/sed-para-substituir-conteudo-dentro-arquivo\/","datePublished": "2020-12-10T22:58:00-03:00","dateModified": "2020-12-10T22:58:00-03:00","publisher": {
+            "@type": "Organization",
+            "name": "Matheus Dias Queiroz"},"author": {
+                "@type": "Person",
+                "name": "Matheus Dias Queiroz"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Coisas de Infra">Coisas de Infra</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Coisas de Infra">Coisas de Infra</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title"></h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Como usar o sed e o find para substituir texto dentro de um arquivo no linux</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://coisasdeinfra.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Matheus Dias Queiroz</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="10-12-2020">10-12-2020</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span></span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#contextualização">Contextualização</a></li>
+    <li><a href="#comando-sed-para-substituir-uma-expressão-em-um-único-arquivo">Comando sed para substituir uma expressão em um único arquivo</a></li>
+    <li><a href="#find--sed-para-substituir-uma-expressão-em-mais-de-um-arquivo">find + sed para substituir uma expressão em mais de um arquivo</a>
+      <ul>
+        <li><a href="#find">find</a></li>
+        <li><a href="#find--sed">find + sed</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="contextualização">Contextualização</h1>
+<p>Com certeza há diversas soluções para o problema de substituir um texto/expressão de dentro de um arquivo no Linux. A solução usada para este caso foi o uso dos comandos <code>sed</code> e <code>find</code>.</p>
+<p>Eu tinha vários arquivos texto (.txt) dentro de um diretório no Linux e todos esses arquivos tinham a expressão <code>draft:true</code> dentro deles. Eu precisava mudar essa mesma expressão em todos os arquivos para <code>draft:false</code>. Uma das soluções possíveis: usar o comando <code>sed</code>.</p>
+<h1 id="comando-sed-para-substituir-uma-expressão-em-um-único-arquivo">Comando sed para substituir uma expressão em um único arquivo</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">sed -i <span class="s1">&#39;s/draft: true/draft: false/g&#39;</span> ./dir/arq-1.txt
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="1-cat-sed-cat.png"
+        data-srcset="/sed-para-substituir-conteudo-dentro-arquivo/1-cat-sed-cat.png, 1-cat-sed-cat.png 1.5x, /sed-para-substituir-conteudo-dentro-arquivo/1-cat-sed-cat.png 2x"
+        data-sizes="auto"
+        alt="/sed-para-substituir-conteudo-dentro-arquivo/1-cat-sed-cat.png"
+        title="Antes e depois do sed" /></p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>Info<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">A opção <code>-i</code> significa edição no local, ou seja, o sed vai editar/modificar o próprio arquivo passado como parâmetro. Sem esta opção, ao encontrar a expressão <code>draft: true</code> ele ia simplesmente imprimir <code>draft: false</code> na saída padrão do Linux (stdout), o Shell, e não ia alterar o arquivo ou substituir a expressão. Faça o teste. =D
+Outro ponto é a sintaxe de quando queremos usar o <code>sed</code> para substituir algo: <code>sed -i 's/SubstituaIsso/PorIsso/g'</code>. A letra <code>s</code>, no começo, significa que queremos substituir algo; a <code>g</code> no final significa que queremos fazer uma substituição global, ou seja, que todas as ocorrências encontradas sejam substituídas - e não somente a primeira ocorrência, que é o comportamento padrão a ser executado caso o <code>g</code> não seja colocado.</div>
+        </div>
+    </div>
+<h1 id="find--sed-para-substituir-uma-expressão-em-mais-de-um-arquivo">find + sed para substituir uma expressão em mais de um arquivo</h1>
+<p>O cenário é o seguinte:</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="cat-all.png"
+        data-srcset="/sed-para-substituir-conteudo-dentro-arquivo/cat-all.png, cat-all.png 1.5x, /sed-para-substituir-conteudo-dentro-arquivo/cat-all.png 2x"
+        data-sizes="auto"
+        alt="/sed-para-substituir-conteudo-dentro-arquivo/cat-all.png"
+        title="cat nos arquivos dentro de diferentes diretórios" /></p>
+<p>Como usar o <strong>sed</strong> para subtituir uma mesma expressão em todos os arquivos de uma vez?</p>
+<h2 id="find">find</h2>
+<p>O comando find no linux procura por arquivos e diretórios. Por padrão faz uma busca recursiva! Entre as diversas e poderosas opções do find, existe a opção do próprio find executar comandos em seus resultados.</p>
+<p>Para visualizar melhor essa opção, veja o resultado do comando <code>find ./</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="find-dir.png"
+        data-srcset="/sed-para-substituir-conteudo-dentro-arquivo/find-dir.png, find-dir.png 1.5x, /sed-para-substituir-conteudo-dentro-arquivo/find-dir.png 2x"
+        data-sizes="auto"
+        alt="/sed-para-substituir-conteudo-dentro-arquivo/find-dir.png"
+        title="Comando find" /></p>
+<p>Veja que foram listados todos os arquivos e pastas dentro de <code>./</code>.</p>
+<p>Com a opção <code>-exec</code> é possível executar um comando em cada um desses arquivos e pastas que o find listou. Já dá para ligar os pontos, certo?</p>
+<h2 id="find--sed">find + sed</h2>
+<p>O comando para aplicar o comando <code>sed</code> em todos os arquivos de um diretório usando <code>find</code> fica:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Shell" data-lang="Shell">find ./ -type f -exec sed -i <span class="s1">&#39;s/draft: true/draft: false/g&#39;</span> <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Após aplicar o comando <code>find</code>, veja a repetição do comando cat nos arquivos:</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="find-sed-cat.png"
+        data-srcset="/sed-para-substituir-conteudo-dentro-arquivo/find-sed-cat.png, find-sed-cat.png 1.5x, /sed-para-substituir-conteudo-dentro-arquivo/find-sed-cat.png 2x"
+        data-sizes="auto"
+        alt="/sed-para-substituir-conteudo-dentro-arquivo/find-sed-cat.png"
+        title="Resultado após aplicação do comando find&#43;sed" /></p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>Info<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><code>-type f</code> diz para o find buscar somente arquivos, assim ele não lista diretórios como resultado; <code>{}</code> é onde o find substitui por seus resultados, completando o comando (exemplo: <code>sed -i 's/draft: true/draft: false/g' **./dir/arq-1.txt** \;</code>); O fim do comando aplicado pelo find deve terminar em <code>\;</code> quando queremos executar o comando informado <code>-exec</code> para cada resultado do find, um por vez. Quando queremos executar o comando passado em <code>exec</code> usando todos os resultados como parâmetro de uma vez só, ao invés do <code>\;</code> usamos o <code>+</code>.</div>
+        </div>
+    </div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/sed-para-substituir-conteudo-dentro-arquivo/index.md" target="_blank"></a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="https://coisasdeinfra.com/sed-para-substituir-conteudo-dentro-arquivo/" data-title="Como usar o sed e o find para substituir texto dentro de um arquivo no linux" data-hashtags="linux,sed,find"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="https://coisasdeinfra.com/sed-para-substituir-conteudo-dentro-arquivo/" data-hashtag="linux"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="https://coisasdeinfra.com/sed-para-substituir-conteudo-dentro-arquivo/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" WhatsApp" data-sharer="whatsapp" data-url="https://coisasdeinfra.com/sed-para-substituir-conteudo-dentro-arquivo/" data-title="Como usar o sed e o find para substituir texto dentro de um arquivo no linux" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="https://coisasdeinfra.com/sed-para-substituir-conteudo-dentro-arquivo/" data-title="Como usar o sed e o find para substituir texto dentro de um arquivo no linux" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="https://coisasdeinfra.com/sed-para-substituir-conteudo-dentro-arquivo/" data-title="Como usar o sed e o find para substituir texto dentro de um arquivo no linux"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title=" Trello" data-sharer="trello" data-url="https://coisasdeinfra.com/sed-para-substituir-conteudo-dentro-arquivo/" data-title="Como usar o sed e o find para substituir texto dentro de um arquivo no linux" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/linux/">linux</a>,&nbsp;<a href="/tags/sed/">sed</a>,&nbsp;<a href="/tags/find/">find</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/sai-wordpress-entra-hugo/" class="prev" rel="prev" title="Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo"><i class="fas fa-angle-left fa-fw"></i>Relançamento do blog Coisas de Infra: sai Wordpress entra Hugo</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://coisasdeinfra.com/about" target="_blank">Matheus Dias Queiroz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://coisasdeinfra-com.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":1000},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-130026256-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-130026256-1" async></script></body>
+</html>

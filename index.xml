@@ -7,10 +7,10 @@
             <atom:link href="https://coisasdeinfra.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Como usar o sed e o find para substituir texto dentro de um arquivo no linux</title>
-    <link>https://coisasdeinfra.com/index.pt-br/</link>
+    <link>https://coisasdeinfra.com/sed-para-substituir-conteudo-dentro-arquivo/</link>
     <pubDate>Thu, 10 Dec 2020 22:58:00 -0300</pubDate>
     <author></author>
-    <guid>https://coisasdeinfra.com/index.pt-br/</guid>
+    <guid>https://coisasdeinfra.com/sed-para-substituir-conteudo-dentro-arquivo/</guid>
     <description><![CDATA[Contextualização Com certeza há diversas soluções para o problema de substituir um texto/expressão de dentro de um arquivo no Linux. A solução usada para este caso foi o uso dos comandos sed e find.
 Eu tinha vários arquivos texto (.txt) dentro de um diretório no Linux e todos esses arquivos tinham a expressão draft:true dentro deles. Eu precisava mudar essa mesma expressão em todos os arquivos para draft:false. Uma das soluções possíveis: usar o comando sed.]]></description>
 </item><item>
