@@ -1,31 +1,25 @@
 # Sobre o Matheus
 
 
-# Trajetória no estudo e na área profissional
+# Resumo
 
-Matheus entrou na área de T.I cedo, aos 12 anos, ao ingressar em um curso de Hardware e Redes. Esse desejo de estudar sobre tecnologia veio ao ficar fascinado com a ideia de que era possível compartilhar a Internet de um computador com outro da casa. Logo aprendeu a dar manutenção no hardware de computadores desktops e em sistemas operacionais Windows, comumente Windows XP na época. Teve seus primeiros clientes ainda aos 13 anos, tirando poeira de gabinete, limpando memórias RAM, excluindo vírus e dados temporários de navegador (rsrs).
+Aos 13 anos me descobri na tecnologia ao cursar Hardware e Redes e prestar o primeiro suporte a computador para um cliente. Desde então, sou fascinado por Linux, Redes e Segurança. 
 
-Esse início configurando sistemas operacionais, compartilhando internet e removendo vírus, trouxe fascínio por áreas que são foco até hoje: redes, segurança e configuração de sistemas.
+Entusiasta em IoT, apresentei meu TCC para o curso técnico de mecatrônica utilizando Arduino, e isso me rendeu o cargo de professor de programação durante um ano (2013) na escola onde estudava. 
 
-Desviou um pouco do caminho ao ingressar em um curso técnico de mecatrônica durante o ensino médio, o que acabou trazendo o entusiasmo por um termo que ainda nem era utilizado na época, o IoT. Destacou-se em programação (linguagem C) e fez seu TCC com Arduino, elaborando um controle de velocidade para motores de corrente contínua através de Pulse Width Modulation (PWM). Seu desempenho no curso rendeu o cargo de Professor de Ensino Técnico por 1 ano, dando aulas de programação em C para computadores, microcontroladores PIC e Arduino.
+Na faculdade (TADS FT UNICAMP), ao trabalhar em uma iniciação científica, publiquei um artigo sobre segurança em redes no SBSeg 2017 e um resumo no Congresso de IC da UNICAMP. Então, me encantei pela produção de conteúdo e desenvolvi as habilidades de pesquisa, estudo e aprendizagem. 
 
-Depois ingressou no curso de Tecnologia em Análise e Desenvolvimento de Sistemas da UNICAMP, pois acreditava que só se tornaria um profissional mais completo na área de infraestrutura (redes, segurança e administração de servidores) tendo habilidades com desenvolvimento também.
+Tive uma experiência privilegiada de estágio. Trabalhei com profissionais exemplares, aprendi processos maduros e participei da contínua melhoria dos mesmos. Pude conhecer melhor a área de Governança de T.I e tive contato direto com uma infraestrutura grande, complexa e muito bem gerenciada, toda open source. Foi marcante!
 
-Ainda durante o curso retomou o foco para a área de infraestrutura com força total. Elaborou um Projeto de Pesquisa que foi reconhecido como Iniciação Científica pela UNICAMP. O tema era: Estudo do ataque man in the middle em cenários de transição IPv4/IPv6. O trabalho nesse projeto rendeu um artigo intitulado Estudo do mecanismo de descoberta de vizinhança do IPv6 para a realização do ataque man in the middle, que foi publicado no SBSeg 2017 (Simpósio Brasileiro de Segurança da Informação e Sistemas Computacionais), evento acadêmico de segurança da informação da Sociedade Brasileira de Computação (SBC). Também expôs os trabalhos do projeto de pesquisa no Congresso de Iniciação Científica da UNICAMP, onde foi publicado um resumo sobre o trabalho.
+Acredito que a informação aberta e o compartilhamento do conhecimento tem o potencial para produzir grandes inovações e soluções.
 
-No campo profissional, ingressou em um estágio durante a faculdade na unidade CNPTIA da Embrapa (Embrapa Informática Agropecuária). Nesse estágio trabalhou em um parque computacional de aproximadamente 500 computadores envolvendo-se com as áreas de governança, segurança e suporte à infraestrutura computacional.
+Hoje, atuo como administrador de sistemas na HST, trabalhando com as tecnologias que eu sempre gostei e admirei.
 
-Ao se formar Analista de Sistemas pela UNICAMP e terminar o estágio, desenvolveu um projeto com Raspberry para estudar infraestrutura. Esse projeto deu origem a este site, coisasdeinfra.
-
-Seus objetivos hoje são continuar se aprimorando na área de infraestrutura, com foco em sysadmin, redes e segurança.
-
-# Portfólio: links para artigo e resumo publicados
-
-## Link externo para visualizar artigo publicado no SBSeg 2017:
+# Link para visualizar artigo publicado no SBSeg 2017:
 
 <http://doi.org/10.5281/zenodo.1039050>
 
-## Link externo para visualizar resumo publicado pelo XXV Congresso de Iniciação Científica da UNICAMP:
+# Link para visualizar resumo publicado pelo XXV Congresso de Iniciação Científica da UNICAMP:
 
 <http://dx.doi.org/10.19146/pibic-2017-77893>
 

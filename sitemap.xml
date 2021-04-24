@@ -2,13 +2,13 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://coisasdeinfra.com/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://coisasdeinfra.com/sed-para-substituir-conteudo-dentro-arquivo/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://coisasdeinfra.com/tags/find/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://coisasdeinfra.com/tags/linux/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://coisasdeinfra.com/posts/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://coisasdeinfra.com/tags/sed/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://coisasdeinfra.com/tags/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://coisasdeinfra.com/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://coisasdeinfra.com/sed-para-substituir-conteudo-dentro-arquivo/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://coisasdeinfra.com/tags/find/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://coisasdeinfra.com/tags/linux/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://coisasdeinfra.com/posts/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://coisasdeinfra.com/tags/sed/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://coisasdeinfra.com/tags/</loc><lastmod>2020-12-10T22:58:00-03:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://coisasdeinfra.com/tags/blog/</loc><lastmod>2020-08-26T20:45:42-03:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://coisasdeinfra.com/tags/git/</loc><lastmod>2020-08-26T20:45:42-03:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://coisasdeinfra.com/tags/githubpages/</loc><lastmod>2020-08-26T20:45:42-03:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
